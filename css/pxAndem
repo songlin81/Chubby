@@ -1,11 +1,7 @@
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-		<title>mydiv</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<script type="text/javascript" src="jquery/jquery.js"></script>
-		<script language="javascript">
-			
-		</script>	
 		<style type="text/css" rel="Stylesheet">
 			.Outer{font-size:20px;}
 			#Font1{font-size:0.6em;}
@@ -22,14 +18,12 @@
 			<span id="Font2">ABCDEFG_12px</span>
 			<span id="Font3">ABCDEFG_1em</span>
 			<span id="Font4">ABCDEFG_None</span>
-			<br />
-			
+			<br />		
 			<div class="Inner">
 				<span id="Font5">ABCDEFG_1em</span>
 				<span id="Font6">ABCDEFG_0.4em</span>
 			</div>
-		</div>
-		
+		</div>		
         <!-- 字体单位应该用em而不用px，原因简单来说就是支持IE6下的字体缩放，
 		在页面中按ctrl+滚轮，字体以px为单位的网站没有反应。
 		px是绝对单位，不支持IE的缩放，em是相对单位。em指字体高，任意浏览器的默认字体高都是16px。
