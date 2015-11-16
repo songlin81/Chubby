@@ -9,16 +9,16 @@ window.onload = function(){
         var bear = new Sprite(32, 32);
         bear.image = game.assets["chara1.png"];
         bear.x = 0;
-        bear.y = 100;
+        bear.y = 150;
         bear.frame = 10;
         game.rootScene.addChild(bear);
 
-        var r=rand(256);
-        var g=rand(256);
-        var b=rand(256);
-        var x=100;
-        var y=10;
-        game.addLabel("Song's 2D game yard", "rgb("+r+","+g+","+b+")", x, y);
+        var label = new Label("Song's 2D play yard");
+        label.font="12px sanes-serif";
+        label.color="rgb(126,0,0)";
+        label.x=50;
+        label.y=10;
+        game.rootScene.addChild(label);
         
         bear.addEventListener("enterframe", function(){         
             if (this.scaleX === 1) {
@@ -34,6 +34,15 @@ window.onload = function(){
                 if (this.x < 0) {
                     this.scaleX = 1;
                 }
+            }
+            
+            if (game.frame % 10  == 0) {
+                var r=rand(256);
+                var g=rand(256);
+                var b=rand(256);
+                var x=rand(50)+50;
+                var y=rand(50)+30;
+                game.addLabel(game.frame, "rgb("+r+","+g+","+b+")", x, y);
             }
         });
 
