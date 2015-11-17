@@ -3,7 +3,7 @@ enchant();
 window.onload = function(){
     var game = new Core(320, 320);
     game.fps = 15;
-    game.preload("chara1.png", 'map0.png');
+    game.preload("chara1.png", 'map0.png', 'gameover.wav');
     
     game.onload = function(){
         
@@ -68,6 +68,7 @@ window.onload = function(){
                 this.x += 1;
                 this.frame = this.age % 3 + 10;
                 if (this.x > 320-32) {
+                    game.assets['gameover.wav'].play();
                     this.scaleX=-1;
                 }
             }
@@ -75,6 +76,7 @@ window.onload = function(){
                 this.x -= 1;
                 this.frame = this.age % 3 + 10;
                 if (this.x < 0) {
+                    game.assets['gameover.wav'].play();
                     this.scaleX = 1;
                 }
             }
@@ -120,7 +122,10 @@ window.onload = function(){
                 status.add(d + 'buttonup');
             })
         });
-        game.rootScene.addChild(status); 
+        game.rootScene.addChild(status);
+        
+        //7. scene
+        game.rootScene.backgroundColor = 'rgb(182, 255, 255)';
     };
     game.start();
     
