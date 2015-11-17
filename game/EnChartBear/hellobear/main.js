@@ -7,12 +7,16 @@ window.onload = function(){
     
     game.onload = function(){
         
+        //1. overlay
         var overlabel = new Label('');
-        var red = new Sprite(120, 120);
+        overlabel.x=230;
+        overlabel.y=0;
+        var red = new Sprite(60, 60);
         red.backgroundColor = 'red';
-        red.moveTo(160, 160);
+        red.moveTo(230, 230);
         game.rootScene.addChild(red);
-        var blue = new Sprite(120, 120);
+        var blue = new Sprite(60, 60);
+        blue.moveTo(245, 245);
         blue.backgroundColor = 'blue';
         game.rootScene.addChild(blue);
         blue.on('touchstart', function(evt){
@@ -24,6 +28,7 @@ window.onload = function(){
         });
         game.rootScene.addChild(overlabel);
         
+        //2. map
         var map = new Map(16, 16);
         map.image = game.assets['map0.png'];
         map.loadData(
@@ -41,6 +46,7 @@ window.onload = function(){
         map.y=100;
         game.rootScene.addChild(map);
         
+        //3. walking bear
         var bear = new Sprite(32, 32);
         bear.image = game.assets["chara1.png"];
         bear.x = 0;
@@ -48,6 +54,7 @@ window.onload = function(){
         bear.frame = 10;
         game.rootScene.addChild(bear);
 
+        //4. heading
         var label = new Label("Song's 2D play yard");
         label.font="12px sanes-serif";
         label.color="rgb(126,0,0)";
@@ -55,6 +62,7 @@ window.onload = function(){
         label.y=10;
         game.rootScene.addChild(label);
         
+        //5. events bear
         bear.addEventListener("enterframe", function(){         
             if (this.scaleX === 1) {
                 this.x += 1;
@@ -80,10 +88,39 @@ window.onload = function(){
                 game.addLabel(game.frame, "rgb("+r+","+g+","+b+")", x, y);
             }
         });
-
         bear.addEventListener("touchstart", function(){
             game.rootScene.removeChild(bear);
         });
+        
+        //6. event: tracking canvus
+        var status = new Label("");
+        status.x=0;
+        status.y=230;
+        status._log = [];
+        status.add = function(str) {
+            this._log.unshift(str);
+            this._log = this._log.slice(0, 6);
+            this.text = this._log.join('<br />');
+        };
+        game.rootScene.on('touchstart', function(evt) {
+            status.add('touchstart (' + round(evt.x) + ', ' + round(evt.y) + ')');
+        });
+        game.rootScene.on('touchmove', function(evt){
+            status.add('touchmove (' + round(evt.x) + ', ' + round(evt.y) + ')');
+        });
+        game.rootScene.on('touchend', function(evt){
+            status.add('touchend (' + round(evt.x) + ', ' + round(evt.y) + ')');
+        });       
+        ['up', 'down', 'right', 'left'].forEach(function (direction){
+            var d = direction;
+            game.rootScene.on(direction + 'buttondown', function(){
+                status.add(d + 'buttondown');
+            })
+            game.rootScene.on(direction + 'buttonup', function(){
+                status.add(d + 'buttonup');
+            })
+        });
+        game.rootScene.addChild(status); 
     };
     game.start();
     
@@ -100,3 +137,7 @@ window.onload = function(){
 function rand(num){
     return Math.floor(Math.random() * num);
 }
+
+function round(num) {
+    return Math.round(num * 1e3) / 1e3;
+};
