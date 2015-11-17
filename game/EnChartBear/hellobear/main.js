@@ -3,9 +3,44 @@ enchant();
 window.onload = function(){
     var game = new Core(320, 320);
     game.fps = 15;
-    game.preload("chara1.png");
+    game.preload("chara1.png", 'map0.png');
     
     game.onload = function(){
+        
+        var overlabel = new Label('');
+        var red = new Sprite(120, 120);
+        red.backgroundColor = 'red';
+        red.moveTo(160, 160);
+        game.rootScene.addChild(red);
+        var blue = new Sprite(120, 120);
+        blue.backgroundColor = 'blue';
+        game.rootScene.addChild(blue);
+        blue.on('touchstart', function(evt){
+            overlabel.text += 'blue touchstart <br/>';
+            red.dispatchEvent(evt);
+        });
+        red.on('touchstart', function(evt){
+            overlabel.text += 'red touchstart <br/>';
+        });
+        game.rootScene.addChild(overlabel);
+        
+        var map = new Map(16, 16);
+        map.image = game.assets['map0.png'];
+        map.loadData(
+            [
+                [4, 4, 4, 4, 4, 4, 4],
+                [4, 5, 5, 5, 5, 5, 4],
+                [4, 5, 4, 5, 4, 5, 4],
+                [4, 5, 5, 5, 5, 5, 4],
+                [4, 5, 4, 5, 4, 5, 4],
+                [4, 5, 5, 5, 5, 5, 4],
+                [4, 4, 4, 4, 4, 4, 4]
+            ]
+        );
+        map.x=100;
+        map.y=100;
+        game.rootScene.addChild(map);
+        
         var bear = new Sprite(32, 32);
         bear.image = game.assets["chara1.png"];
         bear.x = 0;
@@ -36,7 +71,7 @@ window.onload = function(){
                 }
             }
             
-            if (game.frame % 10  == 0) {
+            if ((game.frame % 10  == 0) && (this.age<100)) {
                 var r=rand(256);
                 var g=rand(256);
                 var b=rand(256);
