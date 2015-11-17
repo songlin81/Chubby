@@ -3,7 +3,7 @@ enchant();
 window.onload = function(){
     var game = new Core(320, 320);
     game.fps = 15;
-    game.preload("chara1.png", 'map0.png', 'gameover.wav');
+    game.preload("chara1.png", 'map0.png', 'gameover.wav', 'jump.wav');
     
     game.onload = function(){
         
@@ -68,7 +68,7 @@ window.onload = function(){
                 this.x += 1;
                 this.frame = this.age % 3 + 10;
                 if (this.x > 320-32) {
-                    game.assets['gameover.wav'].play();
+                    game.assets['jump.wav'].play();
                     this.scaleX=-1;
                 }
             }
@@ -76,7 +76,7 @@ window.onload = function(){
                 this.x -= 1;
                 this.frame = this.age % 3 + 10;
                 if (this.x < 0) {
-                    game.assets['gameover.wav'].play();
+                    game.assets['jump.wav'].play();
                     this.scaleX = 1;
                 }
             }
@@ -92,6 +92,7 @@ window.onload = function(){
         });
         bear.addEventListener("touchstart", function(){
             game.rootScene.removeChild(bear);
+            game.assets['gameover.wav'].play();
         });
         
         //6. event: tracking canvus
