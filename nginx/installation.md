@@ -45,3 +45,81 @@ sudo /usr/local/nginx/sbin/nginx
 wwhdeAir:sbin wwh$ sudo /usr/local/nginx/sbin/nginx -s stop
 Password:
 wwhdeAir:sbin wwh$
+
+-----------------------
+
+(mac Shift+command+G in finder and fill in below directory)
+wwhdeAir:conf wwh$ pwd
+/usr/local/nginx/conf
+
+wwhdeAir:conf wwh$ sudo chmod a+rw nginx.conf
+
+-----------------------
+
+wwhdeAir:conf wwh$ ps aux|grep nginx
+wwh              8543   0.0  0.0  2452228    704 s000  S+    9:17下午   0:00.01 grep nginx
+nobody           8533   0.0  0.0  2453196   1212   ??  S     9:16下午   0:00.00 nginx: worker process
+root             8532   0.0  0.0  2443768    376   ??  Ss    9:16下午   0:00.00 nginx: master process /usr/local/nginx/sbin/nginx
+
+-->
+
+user root wheel;
+worker_processes  1;
+
+#error_log  logs/error.log;
+#error_log  logs/error.log  notice;
+#error_log  logs/error.log  info;
+
+#pid        logs/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+    #                  '$status $body_bytes_sent "$http_referer" '
+    #                  '"$http_user_agent" "$http_x_forwarded_for"';
+
+    #access_log  logs/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    #keepalive_timeout  0;
+    keepalive_timeout  65;
+
+    #gzip  on;
+
+    server {
+        listen       80;
+        server_name  localhost;
+
+        #charset koi8-r;
+
+        #access_log  logs/host.access.log  main;
+
+        location / {
+            root   /Users/wwh/Documents/Chubby/Chubby/game/EnChartBear/hellobear;
+            index  index.html index.htm;
+            autoindex on;
+        }
+
+#        location /hello {
+#            default_type 'text/plain';
+#            content_by_lua 'ngx.say("hello, lua")';
+#        }
+
+        #error_page  404              /404.html;
+
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
