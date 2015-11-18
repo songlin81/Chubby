@@ -63,7 +63,8 @@ root             8532   0.0  0.0  2443768    376   ??  Ss    9:16下午   0:00.0
 
 -->
 
-user root wheel;
+
+user root wheel;                #### added user wheel as from above ps
 worker_processes  1;
 
 #error_log  logs/error.log;
@@ -105,21 +106,11 @@ http {
         #access_log  logs/host.access.log  main;
 
         location / {
-            root   /Users/wwh/Documents/Chubby/Chubby/game/EnChartBear/hellobear;
-            index  index.html index.htm;
+            root   /Users/wwh/Documents/Chubby/Chubby/game/EnChartBear/hellobear;       #### root directory
+            index  index.html;
             autoindex on;
         }
 
-#        location /hello {
-#            default_type 'text/plain';
-#            content_by_lua 'ngx.say("hello, lua")';
-#        }
-
-        #error_page  404              /404.html;
-
-        # redirect server error pages to the static page /50x.html
-        #
-        error_page   500 502 503 504  /50x.html;
-        location = /50x.html {
-            root   html;
+        location /abc { 
+            proxy_pass   http://www.sina.com.cn/;                                       #### proxy redirect to sina via /abc
         }
