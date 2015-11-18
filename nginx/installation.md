@@ -41,3 +41,7 @@ cc -c -pipe  -O -Wall -Wextra -Wpointer-arith -Wconditional-uninitialized -Wno-u
 		src/core/nginx.c
 
 sudo /usr/local/nginx/sbin/nginx
+
+wwhdeAir:sbin wwh$ sudo /usr/local/nginx/sbin/nginx -s stop
+Password:
+wwhdeAir:sbin wwh$
