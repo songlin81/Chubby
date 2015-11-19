@@ -1,0 +1,29 @@
+<html>
+<head>
+    <meta charset=UTF-8 />
+    <script type="text/javascript">
+        var timer = null, SLEEP = 1000, interval=10;
+        var timef = function ()
+        {
+            var time = document.getElementById ('time');
+            if ((interval--) == 1)
+            {
+                clearTimeout (timer);
+                document.getElementById ('btn').removeAttribute("disabled");
+                document.getElementById ('btn').value="获取验证码";
+                interval=10;
+                return;
+            }
+            document.getElementById ('btn').setAttribute("disabled", true);
+            document.getElementById ('btn').value=interval+'s';
+            timer = setTimeout (timef, SLEEP);
+        }
+        var reset=function(){
+            document.getElementById ('btn').removeAttribute("disabled");
+        }
+    </script>
+</head>
+<body onunload="reset()">
+    <input onclick="timef();" id="btn" type="button" value="获取验证码" style="width:111px;height:11px"></button>
+</body>
+</html>
