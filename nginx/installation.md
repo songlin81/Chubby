@@ -11,8 +11,10 @@ wwhdeAir:nginx-1.8.0 wwh$ ls
 CHANGES		README		configure	man
 CHANGES.ru	auto		contrib		src
 LICENSE		conf		html
+
 wwhdeAir:nginx-1.8.0 wwh$ ll
 -bash: ll: command not found
+
 wwhdeAir:nginx-1.8.0 wwh$ ls -l
 total 1256
 -rwxrwxrwx@  1 wwh  staff  249124  4 21  2015 CHANGES
@@ -44,7 +46,7 @@ sudo /usr/local/nginx/sbin/nginx
 
 wwhdeAir:sbin wwh$ sudo /usr/local/nginx/sbin/nginx -s stop
 Password:
-wwhdeAir:sbin wwh$
+wwhdeAir:sbin wwh$ sudo /usr/local/nginx/sbin/nginx
 
 -----------------------
 
