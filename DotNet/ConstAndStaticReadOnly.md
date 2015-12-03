@@ -4,6 +4,7 @@
 而static readonly是在运行时计算出其值的，所以还可以通过静态构造函数来赋值。
 
 明白了这个本质区别，我们就不难看出下面的语句中static readonly和const能否互换了：
+
 1. static readonly MyClass myins = new MyClass();
 2. static readonly MyClass myins = null;
 3. static readonly A = B * 20;
