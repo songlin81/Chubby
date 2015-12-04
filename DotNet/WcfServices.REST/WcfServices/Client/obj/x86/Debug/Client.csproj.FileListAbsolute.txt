@@ -1,0 +1,32 @@
+E:\WCF技术剖析\WCF技术剖析（卷1）（修订版）\Samples\Chapter 11\WcfServices\Client\bin\Debug\Client.exe
+E:\WCF技术剖析\WCF技术剖析（卷1）（修订版）\Samples\Chapter 11\WcfServices\Client\bin\Debug\Client.pdb
+E:\WCF技术剖析\WCF技术剖析（卷1）（修订版）\Samples\Chapter 11\WcfServices\Client\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\WCF技术剖析\WCF技术剖析（卷1）（修订版）\Samples\Chapter 11\WcfServices\Client\obj\x86\Debug\Client.exe
+E:\WCF技术剖析\WCF技术剖析（卷1）（修订版）\Samples\Chapter 11\WcfServices\Client\obj\x86\Debug\Client.pdb
+E:\WCF技术剖析\WCF技术剖析（卷1）（修订版）\Samples\Chapter 11\WcfServices\Client\bin\Debug\Client.exe.config
+E:\WCF技术剖析\WCF技术剖析（卷1）（修订版）\Samples\Chapter 11\WcfServices\Client\bin\Debug\Artech.WcfServices.Service.Interface.dll
+E:\WCF技术剖析\WCF技术剖析（卷1）（修订版）\Samples\Chapter 11\WcfServices\Client\bin\Debug\Artech.WcfServices.Service.Interface.pdb
+E:\WCF技术剖析\WCF技术剖析（卷1）（修订版）\Samples\Chapter 11\S1101\WcfServices\Client\bin\Debug\Client.exe.config
+E:\WCF技术剖析\WCF技术剖析（卷1）（修订版）\Samples\Chapter 11\S1101\WcfServices\Client\bin\Debug\Client.exe
+E:\WCF技术剖析\WCF技术剖析（卷1）（修订版）\Samples\Chapter 11\S1101\WcfServices\Client\bin\Debug\Client.pdb
+E:\WCF技术剖析\WCF技术剖析（卷1）（修订版）\Samples\Chapter 11\S1101\WcfServices\Client\bin\Debug\Artech.WcfServices.Service.Interface.dll
+E:\WCF技术剖析\WCF技术剖析（卷1）（修订版）\Samples\Chapter 11\S1101\WcfServices\Client\bin\Debug\Artech.WcfServices.Service.Interface.pdb
+E:\WCF技术剖析\WCF技术剖析（卷1）（修订版）\Samples\Chapter 11\S1101\WcfServices\Client\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\WCF技术剖析\WCF技术剖析（卷1）（修订版）\Samples\Chapter 11\S1101\WcfServices\Client\obj\x86\Debug\Client.exe
+E:\WCF技术剖析\WCF技术剖析（卷1）（修订版）\Samples\Chapter 11\S1101\WcfServices\Client\obj\x86\Debug\Client.pdb
+E:\WCF技术剖析（卷1）（修订版）\Samples\Chapter 11\S1101\WcfServices\Client\bin\Debug\Client.exe.config
+E:\WCF技术剖析（卷1）（修订版）\Samples\Chapter 11\S1101\WcfServices\Client\bin\Debug\Client.exe
+E:\WCF技术剖析（卷1）（修订版）\Samples\Chapter 11\S1101\WcfServices\Client\bin\Debug\Client.pdb
+E:\WCF技术剖析（卷1）（修订版）\Samples\Chapter 11\S1101\WcfServices\Client\bin\Debug\Artech.WcfServices.Service.Interface.dll
+E:\WCF技术剖析（卷1）（修订版）\Samples\Chapter 11\S1101\WcfServices\Client\bin\Debug\Artech.WcfServices.Service.Interface.pdb
+E:\WCF技术剖析（卷1）（修订版）\Samples\Chapter 11\S1101\WcfServices\Client\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\WCF技术剖析（卷1）（修订版）\Samples\Chapter 11\S1101\WcfServices\Client\obj\x86\Debug\Client.exe
+E:\WCF技术剖析（卷1）（修订版）\Samples\Chapter 11\S1101\WcfServices\Client\obj\x86\Debug\Client.pdb
+C:\Users\v0cn140\Desktop\WcfServices.REST\WcfServices\Client\bin\Debug\Client.exe.config
+C:\Users\v0cn140\Desktop\WcfServices.REST\WcfServices\Client\bin\Debug\Client.exe
+C:\Users\v0cn140\Desktop\WcfServices.REST\WcfServices\Client\bin\Debug\Client.pdb
+C:\Users\v0cn140\Desktop\WcfServices.REST\WcfServices\Client\bin\Debug\Artech.WcfServices.Service.Interface.dll
+C:\Users\v0cn140\Desktop\WcfServices.REST\WcfServices\Client\bin\Debug\Artech.WcfServices.Service.Interface.pdb
+C:\Users\v0cn140\Desktop\WcfServices.REST\WcfServices\Client\obj\x86\Debug\Client.csprojResolveAssemblyReference.cache
+C:\Users\v0cn140\Desktop\WcfServices.REST\WcfServices\Client\obj\x86\Debug\Client.exe
+C:\Users\v0cn140\Desktop\WcfServices.REST\WcfServices\Client\obj\x86\Debug\Client.pdb
