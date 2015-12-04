@@ -1,0 +1,12 @@
+C:\Samples\ParallelForEach\ParallelForEach\bin\Debug\ParallelForEach.exe.config
+C:\Samples\ParallelForEach\ParallelForEach\obj\Debug\ParallelForEach.csprojResolveAssemblyReference.cache
+C:\Samples\ParallelForEach\ParallelForEach\bin\Debug\ParallelForEach.exe
+C:\Samples\ParallelForEach\ParallelForEach\bin\Debug\ParallelForEach.pdb
+C:\Samples\ParallelForEach\ParallelForEach\obj\Debug\ParallelForEach.exe
+C:\Samples\ParallelForEach\ParallelForEach\obj\Debug\ParallelForEach.pdb
+C:\Projects\Samples\ParallelForEach\ParallelForEach\bin\Debug\ParallelForEach.exe.config
+C:\Projects\Samples\ParallelForEach\ParallelForEach\obj\Debug\ParallelForEach.exe
+C:\Projects\Samples\ParallelForEach\ParallelForEach\obj\Debug\ParallelForEach.pdb
+C:\Projects\Samples\ParallelForEach\ParallelForEach\bin\Debug\ParallelForEach.exe
+C:\Projects\Samples\ParallelForEach\ParallelForEach\bin\Debug\ParallelForEach.pdb
+C:\Projects\Samples\ParallelForEach\ParallelForEach\obj\Debug\ParallelForEach.csprojResolveAssemblyReference.cache
