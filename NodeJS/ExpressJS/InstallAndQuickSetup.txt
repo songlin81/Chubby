@@ -1,0 +1,31 @@
+sudo apt-get install node-express
+
+wwh@ubuntu:~/NODE$ express nodetest1
+
+gedit package.json
+{
+    "name": "application-name"
+  , "version": "0.0.1"
+  , "private": true
+  , "dependencies": {
+      "express": "2.5.8"
+    , "jade": ">= 0.0.1"
+    , "mongodb": "*"    <--- added here
+    , "monk": "*"       <--- added here  
+  }
+}
+
+wwh@ubuntu:~/NODE$ cd nodetest1 && npm install
+
+mkdir data
+
+modify:/home/wwh/NODE/nodetest1/views/layout.jade
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body!= body
+
+wwh@ubuntu:~/NODE/nodetest1$ node app.js
+visit: http://localhost:3000
