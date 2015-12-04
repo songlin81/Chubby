@@ -1,0 +1,27 @@
+wwh@ubuntu:~$ sudo apt-get install nginx
+
+wwh@ubuntu:~$ sudo apt-get install php5-fpm
+
+wwh@ubuntu:~$ sudo gedit /usr/share/nginx/html/info.php
+<?php
+phpinfo();
+?>
+
+wwh@ubuntu:~$ sudo gedit /etc/nginx/sites-available/default 
+location ~ \.php$ {	<——uncomment following lines
+	#	fastcgi_split_path_info ^(.+\.php)(/.+)$;
+	#	# NOTE: You should have "cgi.fix_pathinfo = 0;" in php.ini
+	#
+	#	# With php5-cgi alone:
+	#	fastcgi_pass 127.0.0.1:9000;
+	#	# With php5-fpm:
+		fastcgi_pass unix:/var/run/php5-fpm.sock;
+		fastcgi_index index.php;
+		include fastcgi_params;
+	}
+
+wwh@ubuntu:~$ sudo service nginx reload
+
+visit: http://localhost/info.php
+
+sudo service nginx start
