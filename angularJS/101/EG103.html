@@ -1,0 +1,71 @@
+<html lang="en" ng-app="app">
+<head><title></title><script src="./angular.min.js"></script></head>
+
+<!-- 1. controller plus repeater, and two-way binding. -->
+<body ng-controller="TodoController">
+  <ul><li ng-repeat="todo in todos"><input type="checkbox" ng-model="todo.completed">{{ todo.title }}</li></ul>
+  <input ng-model="nameZZ"> Hello {{ nameZZ }}  <!-- interpolation directive -->
+
+
+<!-- 2. controller plus repeater, and two-way binding. -->
+  <div ng-controller="HelloController"><h2>Hello {{helloTo.title}} !</h2></div>
+
+
+<!-- 3. controller function call, and binding -->
+  <div ng-controller="MyController"><span>{{myData.textf()}}</span></div>
+  <div ng-controller="MyController"><span ng-bind="myData.textf()"></span></div>
+
+<!-- 4. hide and show -->
+  <div ng-controller="MyController"><span ng-show="myData.showIt">SHOW</span><span ng-hide="myData.hideIt">HIDE</span></div>
+
+<!-- 5. ng-switch -->
+  <div ng-controller="MyController">
+    <div ng-switch on="myData.switch">
+      <div ng-switch-when="1">Shown when switch is 1</div>
+      <div ng-switch-when="2">Shown when switch is 2</div>
+      <div ng-switch-default>Shown when switch is anything else than 1 and 2</div>
+    </div>
+  </div>
+
+<!-- 6. ng-if -->
+  <div ng-controller="MyController"><div ng-if="myData.showIt">ng-if Show it</div></div>
+
+<!-- 7. To include fragment-1.html if myData.showIt is true, and fragment-2.html if myData.showIt is false -->
+  <div ng-controller="MyController"><div ng-include="myData.showIt && 'fragment-1.html' || 'fragment-2.html'"></div></div>
+
+  <div ng-controller="MyController">
+  <!-- 8. data binding, and func call -->
+    <ol><li ng-repeat="theItem in myData.items">{{theItem.text}}</li></ol>
+    <ol><li ng-repeat="theItem in myData.getItems()">{{theItem.text}}</li></ol>
+  <!-- 9. indexer -->
+    <ol><li ng-repeat="(name, value) in myData.myObject">{{$index}}-{{$first}}-{{$middle}}-{{$last}}-{{name}} = {{value}}</li></ol>
+  <!-- 10. Customer filter -->
+    <div ng-repeat="item in myData.items | filter: itemFilter | orderBy:sortField:reverse | limitTo: 1" >{{item.text | uppercase}}</div>
+  </div>
+  
+  <!-- 11. in and customer filter -->
+  <div ng-controller="MyController">
+    <ol><li ng-repeat="item in filteredItems = ( myData.items | filter:filterArray) ">{{item.text}} : {{$first}}, {{$middle}}, {{$last}}</li></ol>
+    <!-- 12. length -->
+    <div>{{filteredItems.length}}</div>
+  </div> 
+
+
+<!-- 13. Filter for string -->
+  <div ng-controller="MyController">
+    <div>Filtered: {{myData.textContent | myFilter}}</div>
+    <div>Filtered: {{myData.textContent | myFilter2:2:5}}</div>
+  </div>
+
+<!-- 14. Same named value but diff controllers. -->
+  <div ng-controller="myController1">{{data.theVar}}</div>
+  <div ng-controller="myController2">
+    <div ng-click="myData.doClick($event)">Click here - {{data.theVar}}</div>
+    
+    <!-- 15. events -->
+    <ul><li ng-repeat="item in myData2.items" ng-click="myData2.doClick(item, $event)">Click here</li></ul>  
+  </div>
+    
+  <script src="./103script.js"></script>
+</body>
+</html>
