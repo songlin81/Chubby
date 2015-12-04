@@ -1,0 +1,15 @@
+如果您希望能够做到:"定时关闭 重启 或者让您的Mac 休眠"
+
+那么您可以试用下面的几个命令:
+
+    关机：
+    sudo shutdown -h yymmddhhmm
+
+    重启：
+    sudo shutdown -r  yymmddhhmm
+
+    睡眠：
+    sudo shutdown -s yymmddhhmm
+     
+    取消
+    sudo kill pid
