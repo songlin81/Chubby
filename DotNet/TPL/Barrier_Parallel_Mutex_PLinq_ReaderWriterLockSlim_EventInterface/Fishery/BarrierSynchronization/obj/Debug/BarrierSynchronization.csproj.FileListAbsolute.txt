@@ -1,0 +1,9 @@
+C:\wasabi\Fishery\BarrierSynchronization\bin\Debug\BarrierSynchronization.exe
+C:\wasabi\Fishery\BarrierSynchronization\bin\Debug\BarrierSynchronization.pdb
+C:\wasabi\Fishery\BarrierSynchronization\obj\Debug\BarrierSynchronization.csprojResolveAssemblyReference.cache
+C:\wasabi\Fishery\BarrierSynchronization\obj\Debug\BarrierSynchronization.exe
+C:\wasabi\Fishery\BarrierSynchronization\obj\Debug\BarrierSynchronization.pdb
+C:\Projects\wasabi\Fishery\BarrierSynchronization\obj\Debug\BarrierSynchronization.exe
+C:\Projects\wasabi\Fishery\BarrierSynchronization\obj\Debug\BarrierSynchronization.pdb
+C:\Users\v0cn140\Desktop\SendToGit\ParallelDemo\Fishery\BarrierSynchronization\obj\Debug\BarrierSynchronization.exe
+C:\Users\v0cn140\Desktop\SendToGit\ParallelDemo\Fishery\BarrierSynchronization\obj\Debug\BarrierSynchronization.pdb

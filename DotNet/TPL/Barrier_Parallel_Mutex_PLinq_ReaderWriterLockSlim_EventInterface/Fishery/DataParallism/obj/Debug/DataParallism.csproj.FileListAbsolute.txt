@@ -1,0 +1,5 @@
+C:\wasabi\Fishery\DataParallism\bin\Debug\DataParallism.exe
+C:\wasabi\Fishery\DataParallism\bin\Debug\DataParallism.pdb
+C:\wasabi\Fishery\DataParallism\obj\Debug\DataParallism.csprojResolveAssemblyReference.cache
+C:\wasabi\Fishery\DataParallism\obj\Debug\DataParallism.exe
+C:\wasabi\Fishery\DataParallism\obj\Debug\DataParallism.pdb
