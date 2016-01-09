@@ -1,0 +1,25 @@
+1. install redis-node module:
+    
+    bogon:NodeProj wwh$ mkdir redis-node
+    bogon:NodeProj wwh$ cd redis-node
+    bogon:redis-node wwh$ ls
+    bogon:redis-node wwh$ sudo npm install redis
+    Password:
+    redis@0.12.1 node_modules/redis
+    bogon:redis-node wwh$ ls
+    node_modules
+
+2.  Test project redis-node
+    a. Enable redis first:
+        bogon:src wwh$ redis-server
+    b. Execute node js:
+        chszs@chszs-ThinkPad:~/work/redis-node$ node redis-test.js
+        OK
+        hello world
+        
+3.  Test Cluster
+    a. Tut101 & Tut102.js
+    b. Create bash for testing: >chmod +x execution.sh
+
+
+    
