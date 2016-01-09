@@ -1,0 +1,108 @@
+attachEvent和addEventListener详解
+
+1.  先介绍 attachEvent：
+
+attachEvent方法可以动态的为网页内的元素添加一个事件．通常你想为某个按扭添加一个单击事件时．你都会在按扭内写上onclick=事件名称.
+使用attachEvent则不必这样做．你把写好的事件准备好，在需要的时候给元素绑定上再执行．而且attachEvent支持为某个元素绑定多个事件．执行顺序是，后绑定的先执行．
+那么我在什么时候使用该方法呢，当然在你需要时．不过如今的Web2.0追求的是分离式开发技术．也就是说你在网页内看不到一句JavaScript语句，
+却在该页中使用了大量JavaScript技术．这就是高手们所谓的分离式开发技术．让前端的显示和程序逻辑分离开来．
+如果想删除事件请使用detachEvent
+
+attachEvent方法只支持IE浏览器．与其功能相同的指令是addEventListener,该指令支持FF等浏览器，并且是W3C标准
+具体请参看下面实例．
+
+语法：Element.attachEvent(Etype,EventName)
+    返回值：[tag:return_value /]
+    参数Element:要为该元素动态添加一个事件．
+    Etype:指定事件类型．比如：onclick,onkeyup,onmousemove等．．
+    EventName:指定事件名称．也就是你写好的函数．
+
+attachEvent实例
+    <html>
+    <head>
+        <title>attachEvent方法使用实例</title>
+    </head>
+    <body>
+        <input id="a" type="button" value="点我" />注意该按扭没有任何事件<br/>
+        <input id="b" type="button" value="点我绑定事件" onclick="att_Event()" />点击该按扭为上面的按扭添加一个事件．
+        <center><h3>重点提示:你可以尝试多次点击绑定事件，最上面的那个按扭就会绑定多个事件．
+                    比如你点击三次绑定．你再点击最上面的按扭，他就会执行三次弹出框．这就是我说的attachEvent方法支持为某个元素绑定多个事件．
+                    当然在实际开发中，你可以根据实际情况，来为他绑定多个不同的事件！
+        <script language="javascript">
+            function att_Event(){
+                var a = document.getElementById("a");
+                a.value = "点我有事件";
+                a.attachEvent("onclick",Hello_ok);
+            }
+            function Hello_ok(){
+                alert("您好，欢迎来到jiang_yy_jiang的技术空间！本空间的发展离不开您的支持，谢谢您光临！");
+            }
+        </script>
+    </body>
+    </html>
+
+
+2.  接下来：addEventListener
+
+addEventListener方法与attachEvent方法功能相同．但是addEventListener是W3C标准，而attachEvent非W3C标准，且只支持IE浏览器．
+虽然addEventListener属于标准方法，但依然无法在IE下运行．IE不支持该方法．
+addEventListener带有三个参数．必须设置．缺一不可．
+addEventListener可以为网页内某个元素动态绑定一个事件．事件类型可随意指定．如:click,mousemove,keyup等．
+通常你想为某个按扭添加一个单击事件时．你都会在按扭内写上onclick=事件名称.使用addEventListener则不必这样做．
+你把写好的事件准备好，在需要的时候给元素绑定上再执行．而且addEventListener支持为某个元素绑定多个事件．执行顺序是，先绑定的先执行．
+那么我在什么时候使用该方法呢，当然在你需要时．不过如今的Web2.0追求的是分离式开发技术．
+也就是说你在网页内看不到一句JavaScript语句，却在该页中使用了大量JavaScript技术．这就是高手们所谓的分离式开发技术．让前端的显示和程序逻辑分离开来．
+如果想删除事件请使用removeEventListener
+经过我测试该方法支持FireFox(火狐浏览器)．不支持IE,具体请参看下面实例．
+
+语法：Element.addEventListener(Etype,EventName,boole)返回值：[tag:return_value /]
+    参数Element:要为该元素绑定一个事件．可以是任意的html元素．
+    Etype:事件类型.比如：click,keyup,mousemove.注意使用addEventListener绑定事件时，设置参数事件类型时不必写on．否则会出错．
+    EventName:要绑定事件的名称．也就是你写好的函数．
+    boole:该参数是一个布尔值：false或true必须填写．false代表支持浏览器事件捕获功能，true代表支持浏览事件冒泡功能．
+
+addEventListener实例
+    <html>
+    <head>
+        <title>addEventListener方法使用实例</title>
+    </head>
+    <body>
+        <input id="a" type="button" value="点我" />注意执行网页时该按扭并没有事件<br/>
+        <input id="b" type="button" value="点我绑定事件" onclick="add_Event()" />点击该按扭为上面的按扭绑定事件<br/>
+        <h3>
+            注意该实例必须在FireFox(火狐浏览器下运行).你可以根据实际情况，来为他绑定多个不同的事件！
+            addEventListener与<a href="http://hi.baidu.com/jiang_yy_jiang">attachevent</a>
+            不一样的是，该方法不可以把同一事件绑定多次，但支持把不同的事件绑定到一个元素．请使用非IE浏览器测试该例。
+        </h3>
+        <script language="javascript">
+            function add_Event(){
+                var a = document.getElementById("a");
+                a.value="点我有事件";
+                a.addEventListener("click",Hello_ok,false);
+            }     
+            function Hello_ok(){
+                alert("您好！欢迎来到jiang_yy_jiang的技术空间！本空间的发展离不开您的支持，谢谢您光临！");
+            }
+        </script>
+    </body>
+    </html>
+
+请注意说明哈！那个很重要，开发人员要注意细节！
+
+看了上面的你在想，这两个方法浏览器不兼容，咋办，当然！老办法咯！！先判断是IE还是火狐嘛，这个简单看下面代码：
+
+<script type="text/javascript">
+    function att_Event() {
+        var a = document.getElementById("a");
+        a.value = "点我有事件";
+        if (document.all) {//IE
+            a.attachEvent("onclick", Hello_ok);
+        }
+        else {//FF,Chrome，Safari
+            a.addEventListener("click", Hello_ok, false);
+        }
+    }
+    function Hello_ok() {
+        alert("您好，我测试attachEvent时间方法！");
+    }
+</script>

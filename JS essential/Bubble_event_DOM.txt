@@ -1,0 +1,66 @@
+        *** javascript 冒泡与捕获的原理及操作实例 ***
+
+
+        所谓的javascript冒泡与捕获不是数据结构中的冒泡算法,而是javascript针对dom事件处理的先后顺序,
+        所谓的先后顺序是指针对父标签与其嵌套子标签,如果父标签与嵌套子标签均有相同的事件时,那一个会先被触发!
+
+        目前流行的浏览器中冒泡模式均是由内至外,即由子至父的处理流程,而捕获模块均是由外向内,即由父至子的处理流程;
+        而捕捉模式与冒泡方式刚才相反!
+
+        而浏览器中为一个标签附加响应事件可以有两种方式,一种是直接在标签上写事件属性的方式,而另一种是使用js为标签增加事件,
+        下面以onclick为例说明一下两种方式的附加方式:
+
+
+        1.  直接在标签上写相应的属性:<div id="eventExample" onclick="alert('attribute event is clicked');">     
+  
+        
+        2.  通过js的方式附加: var eventObj = document.getElementById("eventExample"); 
+        ie浏览器器下使用以下代码:
+              eventObj.attachEvent("onclick",funName); //这里我们其实可以看到ie由于只有两个参数,因此ie只支持一种方式的事件处理,即冒泡方式;
+        其它浏览器(firefox,chrome)下使用以下代码:
+              eventObj.addEventListener("click",funName,true/false);
+              其中第1个参数为事件名称,第二个参数是响应该事件的处理方法,第三个参数如果有true则是捕捉模块,false则是冒泡方式;
+  
+        
+        3.  标签上的属性事件(直接写在标签上的事件)与通过js创建的事件的执行优先级:
+             如果在同一个标签上存在属性事件及js创建的事件,则无论js创建的冒泡或捕捉方式的事件均是属性事件先执行,
+             即第2条例子中alert('attribute event is clicked')先执行;
+  
+        
+        4.  下面的html代码中:
+          <html>
+          <head>  
+          </head>
+          <body>
+            <div id="parentDiv">
+               parent 
+               <div id="childDiv" onclick="alert('child');">child</div>
+            </div>            
+            <script>
+              var child1 =  document.getElementById("childDiv");
+              var parent =  document.getElementById("parentDiv");
+              
+              if(child1.attachEvent) {  
+                 child1.attachEvent("onclick",childevent);
+                 parent.attachEvent("onclick",parentevent);
+              }else{
+                 child1.addEventListener("click",childevent,false);
+                 parent.addEventListener("click",parentevent,true);
+              }         
+              function childevent(){
+                 alert('child event');
+              }
+              function parentevent(){
+                 alert('parent event');
+              }             
+            </script>
+          </body>
+        </html>
+        上面代码中,在ie浏览器中,在页面上单击child几个字,提示出现的顺序是:child-->child event-->parent event; 即使用冒泡方式响应click事件;
+        而在firefox或chrome等浏览器中,由于 parent.addEventListener("click",parentevent,true),
+        最后一个参数为true,即为捕捉方式;单击child几个字后,提示出现的顺序是:parent event-->child-->child event;
+        而如果将parent.addEventListener("click",parentevent,false),
+        最后一个参数为false,即为冒泡方式时,则单击child几个字,提示出现的顺序为:child-->child event-->parent event.
+
+        事件捕获阶段：事件从最上一级标签开始往下查找，直到捕获到事件目标(target)。
+        事件冒泡阶段：事件从事件目标(target)开始，往上冒泡直到页面的最上一级标签。
