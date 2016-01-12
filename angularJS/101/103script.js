@@ -1,6 +1,5 @@
     var app=angular.module('app', []);
     
-    
     //1. controller plus repeater, and two-way binding.
     app.controller('TodoController', ['$scope', function ($scope) {
       $scope.todos = [
@@ -18,12 +17,11 @@
         }
       );
     }]);
-    
-    
+     
     //2. controller plus object literal.
     app.controller("HelloController", function($scope) {
         $scope.helloTo = {};
-        $scope.helloTo.title = "World, AngularJS";
+        $scope.helloTo.title = "...";
     } );
     
     
@@ -31,14 +29,14 @@
         //3. function call, and binding
         $scope.myData = {};
         $scope.myData.textf = function() { return "A text from a function"; };
-      
+           
         //4. hide and show
         $scope.myData.showIt = true;    //6. ng-if 
         $scope.myData.hideIt = false;
-        
+               
         //5. ng-switch
         $scope.myData.switch = 3;
-        
+       
         //8. data binding, and func call
         $scope.myData.items = [ {text : "one"}, {text : "two"}, {text : "three"} ];
         $scope.myData.getItems = function() { return this.items; };

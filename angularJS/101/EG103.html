@@ -3,22 +3,25 @@
 
 <!-- 1. controller plus repeater, and two-way binding. -->
 <body ng-controller="TodoController">
+  <div>Part 1.</div>
   <ul><li ng-repeat="todo in todos"><input type="checkbox" ng-model="todo.completed">{{ todo.title }}</li></ul>
   <input ng-model="nameZZ"> Hello {{ nameZZ }}  <!-- interpolation directive -->
 
-
 <!-- 2. controller plus repeater, and two-way binding. -->
-  <div ng-controller="HelloController"><h2>Hello {{helloTo.title}} !</h2></div>
-
+  <br/><br/><div>Part 2.</div>
+  <div ng-controller="HelloController"><h2>Render {{helloTo.title}}</h2></div>
 
 <!-- 3. controller function call, and binding -->
+  <br/><br/><div>Part 3.</div>
   <div ng-controller="MyController"><span>{{myData.textf()}}</span></div>
   <div ng-controller="MyController"><span ng-bind="myData.textf()"></span></div>
 
 <!-- 4. hide and show -->
+  <br/><br/><div>Part 4.</div>
   <div ng-controller="MyController"><span ng-show="myData.showIt">SHOW</span><span ng-hide="myData.hideIt">HIDE</span></div>
 
 <!-- 5. ng-switch -->
+  <br/><br/><div>Part 5.</div>
   <div ng-controller="MyController">
     <div ng-switch on="myData.switch">
       <div ng-switch-when="1">Shown when switch is 1</div>
@@ -28,21 +31,29 @@
   </div>
 
 <!-- 6. ng-if -->
+  <br/><br/><div>Part 6.</div>
   <div ng-controller="MyController"><div ng-if="myData.showIt">ng-if Show it</div></div>
 
 <!-- 7. To include fragment-1.html if myData.showIt is true, and fragment-2.html if myData.showIt is false -->
+  <br/><br/><div>Part 7.</div>
   <div ng-controller="MyController"><div ng-include="myData.showIt && 'fragment-1.html' || 'fragment-2.html'"></div></div>
 
   <div ng-controller="MyController">
+    <br/><br/><div>Part 8.</div>
   <!-- 8. data binding, and func call -->
     <ol><li ng-repeat="theItem in myData.items">{{theItem.text}}</li></ol>
     <ol><li ng-repeat="theItem in myData.getItems()">{{theItem.text}}</li></ol>
+  
+  <br/><br/><div>Part 9.</div>
   <!-- 9. indexer -->
     <ol><li ng-repeat="(name, value) in myData.myObject">{{$index}}-{{$first}}-{{$middle}}-{{$last}}-{{name}} = {{value}}</li></ol>
+  
+  <br/><br/><div>Part 10.</div>
   <!-- 10. Customer filter -->
     <div ng-repeat="item in myData.items | filter: itemFilter | orderBy:sortField:reverse | limitTo: 1" >{{item.text | uppercase}}</div>
   </div>
   
+  <br/><br/><div>Part 11.</div>
   <!-- 11. in and customer filter -->
   <div ng-controller="MyController">
     <ol><li ng-repeat="item in filteredItems = ( myData.items | filter:filterArray) ">{{item.text}} : {{$first}}, {{$middle}}, {{$last}}</li></ol>
@@ -50,19 +61,21 @@
     <div>{{filteredItems.length}}</div>
   </div> 
 
-
 <!-- 13. Filter for string -->
+  <br/><br/><div>Part 12.</div>
   <div ng-controller="MyController">
     <div>Filtered: {{myData.textContent | myFilter}}</div>
     <div>Filtered: {{myData.textContent | myFilter2:2:5}}</div>
   </div>
 
 <!-- 14. Same named value but diff controllers. -->
+  <br/><br/><div>Part 13.</div>
   <div ng-controller="myController1">{{data.theVar}}</div>
   <div ng-controller="myController2">
     <div ng-click="myData.doClick($event)">Click here - {{data.theVar}}</div>
     
     <!-- 15. events -->
+    <br/><br/><div>Part 14.</div>
     <ul><li ng-repeat="item in myData2.items" ng-click="myData2.doClick(item, $event)">Click here</li></ul>  
   </div>
     
