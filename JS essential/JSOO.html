@@ -16,9 +16,9 @@
         }());
         var m1=Man.ManInit(20);
         var m2=new Man.ManInit(21);
-        console.log(m1);            //undefined from func def.   
-        console.log(window.sex);    //no pollution in the global scope.
-        console.log(m2.sex+' '+m2.age);        
+        console.log(m1);                        //undefined... from func def.   
+        console.log(window.sex);                //undefined...no pollution in the global scope.
+        console.log(m2.sex+' '+m2.age);         //male 21  
         console.log("************************************************");      
         
         // 2. new
@@ -28,9 +28,9 @@
         };
         var m11=Man2(20);
         var m22=new Man2(21);   //instance of Man2
-        console.log(m11);
-        console.log(window.sex);
-        console.log(m22.sex+' '+m22.age);          
+        console.log(m11);                   //undefined
+        console.log(window.sex);            //male
+        console.log(m22.sex+' '+m22.age);   //male 21         
         console.log("************************************************");
         
         // 3. func new
@@ -41,7 +41,7 @@
             return obj;
         };
         var m111=Man3(20);
-        console.log(m111.sex+' '+m111.age);   
+        console.log(m111.sex+' '+m111.age);   //male 20
         console.log("************************************************");
     
     </script>  
@@ -55,7 +55,7 @@
                 var localInit=function(age){
                     this.sex="male";
                     this.age=age;
-                    console.log(sex+' '+age);
+                    console.log(sex+' '+age);   //male 22
                     console.log("------------------------");
                 };
                 var _Hello_ok=function() {
