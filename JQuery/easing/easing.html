@@ -1,0 +1,62 @@
+<html>
+<head>
+    <script type="text/javascript" src="jquery-1.12.0.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function()
+    {
+        $(".btn1").click(function(){
+            $("#box").animate({  
+                height:"300px"  
+            }, 3000, 'easeOutBounce');  
+        });
+        $(".btn2").click(function(){
+          $("#box").animate({height:"100px"});
+          alert(jQuery.min(10,20));
+          alert(settings.validate+' '+settings.limit+' '+settings.name);
+          $("#input1").alertWhileClick();
+        });
+        
+        jQuery.extend({
+          min: function(a, b) { return a < b ? a : b; },
+          max: function(a, b) { return a > b ? a : b; }
+        });
+        
+        var settings = { validate: false, limit: 5, name: "foo" };
+        var options = { validate: true, name: "bar" };
+        jQuery.extend(settings, options);
+        
+        $.fn.extend({          
+            alertWhileClick:function() {            
+                  $(this).click(function(){                 
+                         alert($(this).val());           
+                   });           
+             }       
+        });
+        
+        jQuery.extend( jQuery.easing,  
+        {  
+            easeOutExpo: function (x, t, b, c, d) {  
+                return (t==d) ? b+c : c * (-Math.pow(2, -10 * t/d) + 1) + b;  
+            },  
+            easeOutBounce: function (x, t, b, c, d) {  
+                if ((t/=d) < (1/2.75)) {  
+                    return c*(7.5625*t*t) + b;  
+                } else if (t < (2/2.75)) {  
+                    return c*(7.5625*(t-=(1.5/2.75))*t + .75) + b;  
+                } else if (t < (2.5/2.75)) {  
+                    return c*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;  
+                } else {  
+                    return c*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;  
+                }  
+            },  
+        });
+    });
+    </script>
+</head>
+<body>
+    <div id="box" style="background:#98bf21;height:100px;width:100px;margin:6px;"></div>
+    <button class="btn1">Animate</button>
+    <button class="btn2">Reset</button>
+    <input type="text" id="input1" name="input1" value="dds"/>
+</body>
+</html>
