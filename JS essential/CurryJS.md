@@ -1,8 +1,8 @@
 *** Javascript中currying的实现 ***
 
 Currying好像是函数式语言都有的一个特性，比如Perl,Python,Javascript。
-那么到底什么是Currying，我是在学习Closure时无意中接触到这个定义的，觉得很是有趣。
-先看看 Wiki 中的定义：
+
+Wiki 中的定义：
 Currying is the technique of transforming a function that takes multiple arguments 
 in such a way that it can be called as a chain of functions each with a single argument.
 大概的意思就是说，将拥有多个参数的函数Currying化为拥有单一参数的函数形式。
