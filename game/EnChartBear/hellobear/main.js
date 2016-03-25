@@ -6,31 +6,17 @@ window.onload = function(){
     game.preload("chara1.png", 'map0.png', 'gameover.wav', 'jump.wav');
     
     game.onload = function(){
-        
+
         //1. overlay
-        var overlabel = new Label('');
-        overlabel.x=230;
-        overlabel.y=0;
-        var red = new Sprite(60, 60);
-        red.backgroundColor = 'red';
-        red.moveTo(230, 230);
-        game.rootScene.addChild(red);
-        var blue = new Sprite(60, 60);
-        blue.moveTo(245, 245);
-        blue.backgroundColor = 'blue';
-        game.rootScene.addChild(blue);
-        blue.on('touchstart', function(evt){
-            overlabel.text += 'blue touchstart <br/>';
-            red.dispatchEvent(evt);
-        });
-        red.on('touchstart', function(evt){
-            overlabel.text += 'red touchstart <br/>';
-        });
+        var overlabel = new Label('');  overlabel.x=230;    overlabel.y=0;
+        var red = new Sprite(60, 60);   red.backgroundColor = 'red';    red.moveTo(230, 230);   game.rootScene.addChild(red);    
+        var blue = new Sprite(60, 60);  blue.moveTo(245, 245);  blue.backgroundColor = 'blue';  game.rootScene.addChild(blue);
+        blue.on('touchstart', function(evt){    overlabel.text += 'blue touchstart <br/>';  red.dispatchEvent(evt); });
+        red.on('touchstart', function(evt){     overlabel.text += 'red touchstart <br/>';   });
         game.rootScene.addChild(overlabel);
         
         //2. map
-        var map = new Map(16, 16);
-        map.image = game.assets['map0.png'];
+        var map = new Map(16, 16);  map.image = game.assets['map0.png'];
         map.loadData(
             [
                 [4, 4, 4, 4, 4, 4, 4],
@@ -42,26 +28,16 @@ window.onload = function(){
                 [4, 4, 4, 4, 4, 4, 4]
             ]
         );
-        map.x=100;
-        map.y=100;
-        game.rootScene.addChild(map);
-        
+        map.x=100;  map.y=100;  game.rootScene.addChild(map);       
+
         //3. walking bear
-        var bear = new Sprite(32, 32);
-        bear.image = game.assets["chara1.png"];
-        bear.x = 0;
-        bear.y = 150;
-        bear.frame = 10;
+        var bear = new Sprite(32, 32);  bear.image = game.assets["chara1.png"]; bear.x = 0; bear.y = 150;   bear.frame = 10;    
         game.rootScene.addChild(bear);
 
         //4. heading
-        var label = new Label("Song's 2D play yard");
-        label.font="12px sanes-serif";
-        label.color="rgb(126,0,0)";
-        label.x=50;
-        label.y=10;
+        var label = new Label("Song's 2D play yard");   label.font="12px sanes-serif";  label.color="rgb(126,0,0)"; label.x=50; label.y=10;
         game.rootScene.addChild(label);
-        
+
         //5. events bear
         bear.addEventListener("enterframe", function(){         
             if (this.scaleX === 1) {
@@ -69,7 +45,7 @@ window.onload = function(){
                 this.frame = this.age % 3 + 10;
                 if (this.x > 320-32) {
                     game.assets['jump.wav'].play();
-                    this.scaleX=-1;
+                    this.scaleX=-0.5;   //0.5 will shrink to the X-axis by half.
                 }
             }
             else{
@@ -87,22 +63,24 @@ window.onload = function(){
                 var b=rand(256);
                 var x=rand(50)+50;
                 var y=rand(50)+30;
-                game.addLabel(game.frame, "rgb("+r+","+g+","+b+")", x, y);
+                game.addLabel(game.frame, "rgb("+r+","+g+","+b+")", x, y);  //game frame is counting up like 10, 20...till 90.
             }
         });
-        bear.addEventListener("touchstart", function(){
+        bear.addEventListener("touchstart", function(){ //click to remove bear.
             game.rootScene.removeChild(bear);
             game.assets['gameover.wav'].play();
         });
         
+
         //6. event: tracking canvus
         var status = new Label("");
         status.x=0;
         status.y=230;
         status._log = [];
+        //helper.
         status.add = function(str) {
-            this._log.unshift(str);
-            this._log = this._log.slice(0, 6);
+            this._log.unshift(str);                 //add to front.
+            this._log = this._log.slice(0, 6);      //slice(start,end)
             this.text = this._log.join('<br />');
         };
         game.rootScene.on('touchstart', function(evt) {
@@ -125,25 +103,18 @@ window.onload = function(){
         });
         game.rootScene.addChild(status);
         
+
         //7. scene
         game.rootScene.backgroundColor = 'rgb(182, 255, 255)';
     };
     game.start();
     
-    game.addLabel = function(text, color, x, y){
-        var label=new Label(text);
-        label.font = "12px 'Arial'";
-        label.color=color;
-        label.x=x;
-        label.y=y;
-        game.rootScene.addChild(label);
+    //helper.
+    game.addLabel = function(text, color, x, y){    
+        var label=new Label(text);  label.font = "12px 'Arial'";    label.color=color;  label.x=x;  label.y=y;  
+        game.rootScene.addChild(label); 
     };
-};
-
-function rand(num){
-    return Math.floor(Math.random() * num);
 }
 
-function round(num) {
-    return Math.round(num * 1e3) / 1e3;
-};
+function rand(num){ return Math.floor(Math.random() * num); }
+function round(num) {   return Math.round(num * 1e3) / 1e3; }
