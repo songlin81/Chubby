@@ -45,7 +45,7 @@ window.onload = function(){
                 this.frame = this.age % 3 + 10;
                 if (this.x > 320-32) {
                     game.assets['jump.wav'].play();
-                    this.scaleX=-0.5;   //0.5 will shrink to the X-axis by half.
+                    this.scaleX=-1;   //0.5 will shrink to the X-axis by half.
                 }
             }
             else{
