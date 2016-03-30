@@ -4,7 +4,15 @@
   <body>
     <div ng-app="xmpl">
       <div ng-controller="XmplController">
-        {{ greeting }}
+        {{ greeting }}<br>
+        
+        <button ng-click="clickUnfocused()">
+        Not focused
+        </button>
+        <button ngbk-focus ng-click="clickFocused()">
+          I'm very focused!
+        </button>
+        <div>{{message.text}}</div>
       </div>
     </div>
     <script src="angular.min.js"></script>

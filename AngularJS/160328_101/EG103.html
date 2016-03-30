@@ -4,7 +4,8 @@
 <!-- 1. controller plus repeater, and two-way binding. -->
 <body ng-controller="TodoController">
   <div>Part 1.</div>
-  <ul><li ng-repeat="todo in todos"><input type="checkbox" ng-model="todo.completed">{{ todo.title }}</li></ul>
+  <ul><li ng-repeat="todo in todos"><input type="checkbox" ng-model="todo.completed">{{ todo.title }} --> {{ todo.completed }} </li></ul>
+  <div>Part 1.1</div>
   <input ng-model="nameZZ"> Hello {{ nameZZ }}  <!-- interpolation directive -->
 
 <!-- 2. controller plus repeater, and two-way binding. -->
@@ -12,7 +13,7 @@
   <div ng-controller="HelloController"><h2>Render {{helloTo.title}}</h2></div>
 
 <!-- 3. controller function call, and binding -->
-  <br/><br/><div>Part 3.</div>
+  <div>Part 3.</div>
   <div ng-controller="MyController"><span>{{myData.textf()}}</span></div>
   <div ng-controller="MyController"><span ng-bind="myData.textf()"></span></div>
 
@@ -40,19 +41,19 @@
 
   <div ng-controller="MyController">
     <br/><br/><div>Part 8.</div>
-  <!-- 8. data binding, and func call -->
+    <!-- 8. data binding, and func call -->
     <ol><li ng-repeat="theItem in myData.items">{{theItem.text}}</li></ol>
     <ol><li ng-repeat="theItem in myData.getItems()">{{theItem.text}}</li></ol>
-  
-  <br/><br/><div>Part 9.</div>
-  <!-- 9. indexer -->
+
+    <br/><br/><div>Part 9.</div>
+    <!-- 9. indexer -->
     <ol><li ng-repeat="(name, value) in myData.myObject">{{$index}}-{{$first}}-{{$middle}}-{{$last}}-{{name}} = {{value}}</li></ol>
-  
-  <br/><br/><div>Part 10.</div>
-  <!-- 10. Customer filter -->
+
+    <br/><br/><div>Part 10.</div>
+    <!-- 10. Customer filter -->
     <div ng-repeat="item in myData.items | filter: itemFilter | orderBy:sortField:reverse | limitTo: 1" >{{item.text | uppercase}}</div>
   </div>
-  
+
   <br/><br/><div>Part 11.</div>
   <!-- 11. in and customer filter -->
   <div ng-controller="MyController">
@@ -73,6 +74,7 @@
   <div ng-controller="myController1">{{data.theVar}}</div>
   <div ng-controller="myController2">
     <div ng-click="myData.doClick($event)">Click here - {{data.theVar}}</div>
+    
     
     <!-- 15. events -->
     <br/><br/><div>Part 14.</div>

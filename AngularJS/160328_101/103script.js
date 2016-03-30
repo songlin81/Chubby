@@ -1,6 +1,6 @@
     var app=angular.module('app', []);
     
-    //1. controller plus repeater, and two-way binding.
+    //1. controller plus repeater, and two-way binding，and watch.
     app.controller('TodoController', ['$scope', function ($scope) {
       $scope.todos = [
         { title: 'Learn Javascript', completed: true },
@@ -9,7 +9,8 @@
         { title: 'Learn Javascript design patterns', completed: false },
         { title: 'Build Node.js backend', completed: false },
       ];
-      $scope.$watch(function($scope) { return $scope.nameZZ },
+      $scope.$watch(
+        function($scope) { return $scope.nameZZ },
         function(newValue, oldValue) {
           if (newValue.length>5) {
             alert(newValue + "-->" + oldValue);
@@ -23,7 +24,6 @@
         $scope.helloTo = {};
         $scope.helloTo.title = "...";
     } );
-    
     
     app.controller("MyController", function($scope) {
         //3. function call, and binding
