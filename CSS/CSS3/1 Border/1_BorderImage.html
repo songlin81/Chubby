@@ -2,7 +2,17 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <style>   
+        <style>
+            #roundCorner
+            {
+                text-align:center;
+                border:2px solid #a1a1a1;
+                padding:10px 40px; 
+                background:#dddddd;
+                width:350px;
+                border-radius:25px;
+                box-shadow: 10px 10px 5px #888888;
+            }
             div
             {
                 border:15px solid transparent;
@@ -16,7 +26,6 @@
                 -o-border-image:url("border.png") 30 30 round;		/* Opera */
                 border-image:url("border.png") 30 30 round;
             }
-            
             #stretch
             {
                 -moz-border-image:url("./border.png") 30 30 stretch;	/* Old Firefox */
@@ -27,9 +36,8 @@
         </style>
     </head>
     <body>       
-        <div>你好。这是一个 div 元素。</div>     
-        <div id="div2">你好。这是一个 div 元素。</div>
-        
+        <div id="roundCorner">border-radius 属性允许您向元素添加圆角。</div>
+        <br/>
         <div id="round">在这里，图片铺满整个边框。</div>
         <div id="stretch">在这里，图片被拉伸以填充该区域。</div>
     </body>
