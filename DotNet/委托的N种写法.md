@@ -1,9 +1,8 @@
  委托的N种写法，你喜欢哪种？
 
 一、委托调用方式
-1. 最原始版本：
-复制代码
 
+1. 最原始版本：
     delegate string PlusStringHandle(string x, string y);
     class Program
     {
@@ -21,7 +20,6 @@
         }
     }
 
-复制代码
  2. 原始匿名函数版：去掉“plusString”方法，改为
 
             PlusStringHandle pHandle = new PlusStringHandle(delegate(string x, string y)
@@ -47,7 +45,6 @@
             Console.WriteLine(pHandle("abc", "edf"));
 
 如果只有一个参数
-复制代码
 
         delegate void WriteStringHandle(string str);
         static void Main(string[] args)
@@ -58,15 +55,11 @@
 
             Console.Read();
         }
-
-复制代码
-
  
 
 二、委托声明方式
 1. 原始声明方式见上述Demo
 2. 直接使用.NET Framework定义好的泛型委托 Func 与 Action ，从而省却每次都进行的委托声明。
-复制代码
 
         static void Main(string[] args)
         {
@@ -81,9 +74,7 @@
             action(t);
         }
 
-复制代码
 3. 再加上个扩展方法，就能搞成所谓的“链式编程”啦。
-复制代码
 
     class Program
     {   
@@ -104,7 +95,5 @@
             return func(source);
         }
     }
-
-复制代码
 
 看这个代码是不是和我们平时写的"list.Where(p => p.Age > 18)"很像呢？没错Where等方法就是使用类似的方式来实现的。
