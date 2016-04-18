@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript">
+        // Part A. IIFE NameSpace, Module Pattern
+        var checkpoint = (function() {           
+            // private count variable
+            var count = 0;
+            // private method _add
+            var _add = function(a, b){
+                count++;
+                console.log(a + b + "- count = " + count);
+            };          
+            // private method _sub
+            var _sub = function(a, b){
+                count++;
+                console.log(a - b + "- count = " + count);
+            }
+            
+            var auditTrail = function(info) {
+                console.log("Auditing trail is completed in " + info)
+            }
+            var savingAccount = function () {
+                console.log("In saving account calculation");
+                auditTrail("success");
+            };
+            var checkingAccount = function () {
+                console.log("In checking account calculation");
+                auditTrail("success");
+            };
+            
+            return {
+                add : _add, // return public method add and sub as a JavaScript, Object literal
+                sub : _sub,             
+                SavingAccount : savingAccount,
+                CheckingAccount : checkingAccount
+            }
+        }());
+        // As its a singleton, we don't need to create an object but can directly call the methods.
+        checkpoint.add(150,100);
+        checkpoint.sub(150,100);
+        checkpoint.SavingAccount();
+        checkpoint.CheckingAccount();
+        console.log("^^^^^^^^^^ Part A IIFE NameSpace, Module Pattern Singleton ^^^^^^^^^^^^^^^^");
+        
+        
+        // Part B. Module Pattern
+        var Mathlibrary = function(){
+            var count = 0;
+            var _add = function(a, b){
+                count++;
+                console.log(a + b + "- count = " + count);
+            };          
+            var _sub = function(a, b){
+                count++;
+                console.log(a - b + "- count = " + count);
+            }              
+            return{
+                add : _add,
+                sub : _sub
+            }
+        }
+        // Create an object of Mathlibrary class
+        var mathObj = new Mathlibrary();
+        // Call methods add and sub on the mathObj object
+        mathObj.add(150, 100);
+        mathObj.sub(150, 100);
+        console.log("^^^^^^^^^^ Part B Module Pattern ^^^^^^^^^^^^^^^^");
+        
+        
+        // Part C. Currying is the technique of transforming a function that takes multiple arguments 
+        // in such a way that it can be called as a chain of functions each with a single argument.
+        function add(x, y) {
+            return x + y;
+        }
+        console.log('add(2, 3) == ' + add(2, 3));
+        function curry_add(x) {
+            return function(y) {
+                return x + y;
+            }
+        }
+        console.log('curry_add(2)(3) == ' + curry_add(2)(3));   
+        function addGenerator( num ) {
+            // Return a simple function for adding two numbers
+            // with the first number borrowed from the generator
+            return function( toAdd ) {
+                return num + toAdd
+            };
+        }
+        // addFive now contains a function that takes one argument,
+        // adds five to it, and returns the resulting number
+        var addFive = addGenerator( 5 );
+        // We can see here that the result of the addFive function is 9,
+        // when passed an argument of 4
+        console.log( "addFive( 4 ) == 9 is " + (addFive( 4 ) == 9) );
+        console.log("^^^^^^^^^^ Part C Currying ^^^^^^^^^^^^^^^^");
+        
+        
+        // Part D. Callee and Caller.
+        function inner(){
+            console.log(arguments.callee);        //指向拥有这个arguments对象的函数，即inner()
+            console.log(arguments.callee.caller); //这个属性保存着调用当前函数的函数的引用,即outer()
+        }
+        function outer(){
+            inner();
+        }
+        outer();
+        console.log("^^^^^^^^^^ Part D Callee and Caller ^^^^^^^^^^^^^^^^");
+        
+        
+        // Part E. Inheritance three ways -- a. call and apply
+        function Person(name,age,rel){
+            this.name=name; 
+            this.age=age; 
+            this.rel=rel; 
+            this.say=function say(){ 
+                console.log("Name："+name); 
+            }
+        }
+        //call方式
+        function student(name,age){
+            Person.call(this,name,age);
+        }
+        //apply方式
+        function teacher(name,rel){
+            Person.apply(this,[name,rel]);
+            //Person.apply(this,arguments); //跟上句一样的效果，arguments 
+        }
+        //call与aplly的异同：
+        //1,第一个参数this都一样,指当前对象
+        //2,第二个参数不一样：call的是一个个的参数列表；apply的是一个数组（arguments也可以）
+        var per=new Person("AAA",25,"BBB"); //Output：“AAA”
+        per.say();
+        var stu=new student("CCC",18);//Output：“CCC”
+        stu.say();
+        var tea=new teacher("DDD",16);//Output：“DDD”
+        tea.say();
+        console.log("^^^^^^^^^^ Part E. Inheritance three ways -- a. call and apply ^^^^^^^^^^^^^^^^");
+        
+        
+        // Part E. Inheritance three ways -- b. prototype
+        function Personal(name,age){ 
+            this.name=name; 
+            this.age=age; 
+        } 
+        Personal.prototype.sayHello=function(){ 
+            console.log("Getting Name from Prototype："+this.name); 
+        } 
+        var per=new Personal("ZZZ",21); 
+        per.sayHello(); //Output：Getting Name from Prototype：:ZZZ
+        
+        function Student(){} 
+        Student.prototype=new Personal("YYY",21); 
+        var stu=new Student(); 
+        Student.prototype.grade=5; 
+        Student.prototype.intr=function(){ 
+            console.log(this.grade); 
+        } 
+        stu.sayHello();//Output：Getting Name from Prototype：:ZZZ 
+        stu.intr();//Output：5
+        console.log("^^^^^^^^^^ Part E. Inheritance three ways -- b. prototype ^^^^^^^^^^^^^^^^");
+        
+        
+        // Part E. Inheritance three ways -- c. constructor
+        function Parent(name){ 
+            this.name=name; 
+            this.sayParent=function(){ 
+                console.log("Parent:"+this.name); 
+            } 
+        } 
+        function Child(name,age){
+            this.tempMethod=Parent;
+            this.tempMethod(name);
+            this.age=age;
+            this.sayChild=function(){
+                console.log("Child:"+this.name+" age:"+this.age);
+            }
+        }
+        var parent=new Parent("RRR");
+        parent.sayParent(); //Output：“Parent:RRR”
+        var child=new Child("SSS",24); //Output：“Child:SSS age:24”
+        child.sayChild();
+        console.log("^^^^^^^^^^ Part E. Inheritance three ways -- c. constructor ^^^^^^^^^^^^^^^^");
+        
+        
+        // Part F. IIFE (Immediately Invoked Function Expression) Avoid Global Pollution
+        (function(){
+            var Mathlibrary = function(){
+                // private count variable
+                var count = 0;
+                // private method _add
+                var _add = function(a, b){
+                    count++;
+                    console.log(a + b + "- countT = " + count);
+                };
+                // private method _sub
+                var _sub = function(a, b){
+                    count++;
+                    console.log(a - b + "- countT = " + count);
+                }
+                // return public method add and sub as a JavaScript Object literal
+                return{
+                    add : _add,
+                    sub : _sub
+                }
+            }    
+            // Create an object of Mathlibrary class
+            var mathObj = new Mathlibrary();
+            // Call methods add and sub on the mathObj object
+            mathObj.add(150, 100);
+            mathObj.sub(150, 100);
+        }());
+        console.log("^^^^^^^^^^ Part F. IIFE Avoid Global Pollution ^^^^^^^^^^^^^^^^");
+        
+        
+        // Part G. Float precision
+        var a=0.1, b=0.2;
+        console.log("0.1 + 0.2 == " + (a+b) );
+        console.log("0.1 + 0.2 == 0.3 is " + ((a+b)==0.3) );
+        console.log("(0.1 + 0.2).toPrecision(10) == 0.3 is " + ((0.1 + 0.2).toPrecision(10) == 0.3) );
+        console.log("(0.1 + 0.2).toFixed(10) == 0.3 is " + ((0.1 + 0.2).toFixed(10) == 0.3) );
+        console.log("^^^^^^^^^^ Part G. Float precision ^^^^^^^^^^^^^^^^");
+        
+        
+        // Part H. Object Definition
+        var developer = { //Object literal notation
+            firstName : "Song",
+            lastName : "Lin",
+            age : 35
+        };
+        var dev = new Object(); //instance of the Object type
+        dev.firstName = "Song";
+        dev.lastName = "Lin";
+        console.log(developer.firstName + " " + developer.lastName + " " +developer.age);
+        console.log("^^^^^^^^^^ Part H. Object Definition ^^^^^^^^^^^^^^^^");
+        
+        
+        // Part I. IIEF revisit -- new
+        var Man = (function () {
+                var localInit=function(age){
+                    this.sex="male";
+                    this.age=age;   
+                };
+                return{
+                    ManInit:localInit   
+                }
+        }());
+        var m1=Man.ManInit(20);
+        var m2=new Man.ManInit(21);
+        console.log(m1);                        //undefined... from func def.   
+        console.log(window.sex);                //undefined......>>>no pollution in the global scope.
+        console.log(m2.sex+' '+m2.age);         //male 21  
+        console.log("^^^^^^^^^^ Part I. IIEF revisit -- new ^^^^^^^^^^^^^^^^");
+        
+        
+        // Part J. new
+        function Man2(age){
+            this.sex="male";
+            this.age=age;
+        };
+        var m11=Man2(20);
+        var m22=new Man2(21);               //instance of Man2
+        console.log(m11);                   //undefined
+        console.log(window.sex);            //male, global polluted.
+        console.log(m22.sex+' '+m22.age);   //male 21
+        console.log("^^^^^^^^^^ Part J. new ^^^^^^^^^^^^^^^^");
+        
+        
+        // Part K. new factory
+        function Man3(age){
+            var obj=new Object();
+            obj.sex="male";
+            obj.age=age;
+            return obj;
+        };
+        var m111=Man3(20);
+        console.log(m111.sex+' '+m111.age);   //male 20
+        console.log("^^^^^^^^^^ Part K. new factory ^^^^^^^^^^^^^^^^");
+    </script>
+</head>
+<body>
+    <div>Press F12 to view results in Console</div>
+    <button type="button" id="testBtn">test</button>  
+    <script>
+        // Part L. new and event
+        (function () {
+            var Man=function(){
+                var localInit=function(age){
+                    this.sex="male";
+                    this.age=age;
+                    console.log(sex+' '+age);   //male 22
+                };
+                var _Hello_ok=function() {
+                    console.log("您好，我测试attachEvent时间方法！");
+                    console.log("^^^^^^^^^^ Part L. new and event ^^^^^^^^^^^^^^^^");
+                };
+                return{
+                    ManInit:localInit,
+                    Hello_ok: _Hello_ok
+                }
+            }
+            var m2=new Man();
+            m2.ManInit(22);
+            var a = document.getElementById("testBtn");
+            a.innerHTML  = "点我有事件";
+            if (document.all) {//IE
+                a.attachEvent("onclick", m2.Hello_ok);
+            }
+            else {//FF,Chrome，Safari
+                a.addEventListener("click", m2.Hello_ok, false);
+            }
+        }());
+        console.log("^^^^^^^^^^ Part L. new and event ^^^^^^^^^^^^^^^^");
+    </script>
+</body>
+</html>
