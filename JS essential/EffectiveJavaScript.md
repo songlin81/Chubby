@@ -60,10 +60,6 @@ s+=c;
         obj.property1 = 1;
         obj.property2 = 2;
 
-6. 浮点数转换成整型
-很多人喜欢使用parseInt()，其实parseInt()是用于将字符串转换成数字，而不是浮点数和整型之间的转换，
-我们应该使用Math.floor()或者Math.round()
-
 7. 各种类型转换
         var myVar = "3.14159",
         str = "" + myVar, //  to string  
