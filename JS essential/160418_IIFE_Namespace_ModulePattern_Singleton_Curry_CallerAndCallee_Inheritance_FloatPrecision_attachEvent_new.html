@@ -660,9 +660,13 @@
         console.log("^^^^^^^^^^ Part X. Usage of || and &&  ^^^^^^^^^^^^^^^^");
         
         
-        //Part Y.
-        
+        //Part Y.float to int
+        //很多人喜欢使用parseInt()，其实parseInt()是用于将字符串转换成数字，而不是浮点数和整型之间的转换，
+        //我们应该使用Math.floor()或者Math.round()
+        console.log(parseInt('100.5')+' '+Math.floor(100.5)+' '+Math.round(100.5));
         console.log("^^^^^^^^^^ Part Y. ^^^^^^^^^^^^^^^^");
+        
+        
     </script>
 </head>
 <body onunload="reset()">
