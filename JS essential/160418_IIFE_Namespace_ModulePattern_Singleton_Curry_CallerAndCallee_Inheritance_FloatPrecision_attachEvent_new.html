@@ -385,7 +385,80 @@
         console.log("^^^^^^^^^^ Part N. JS OO -- b. contructor ^^^^^^^^^^^^^^^^");
 
         
-       
+        // Part N. JS OO -- c. prototype.
+        //原型模式: 我们创建的每个函数都有prototype（原型）属性，这个属性是一个指针，指向一个对象，
+        //而这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法。
+        //使用原型对象的好处就是可以让所有对象实例共享它所包含的属性及方法。
+        function Blog3() {
+        }
+        Blog3.prototype.name = 'AAA';
+        Blog3.prototype.url = 'http://tools.aaa.net/';
+        Blog3.prototype.friend = ['fr1', 'fr2', 'fr3', 'fr4'];
+        Blog3.prototype.alertInfo = function() {
+          console.log(this.name + this.url + this.friend );
+        }
+        // 以下为测试代码
+        var blog = new Blog3(),
+        blog2 = new Blog3();
+        blog.alertInfo();  // AAAhttp://tools.aaa.net/fr1,fr2,fr3,fr4
+        blog2.alertInfo();  // AAAhttp://tools.aaa.net/fr1,fr2,fr3,fr4
+        
+        blog.name = '1';
+        blog.url = 'http://***.com';
+        blog.friend.pop();
+        blog2.name = '2';
+        blog2.url = 'http://+++.com';
+        blog.alertInfo();  // 1http://***.comfr1,fr2,fr3
+        blog2.alertInfo();  // 2http://+++.comfr1,fr2,fr3   
+        //原型模式也不是没有缺点，首先，它省略了构造函数传递初始化参数这一环节，结果所有实例在默认情况下都取得了相同的属性值，
+        //这样非常不方便，但这还是不是原型的最大问题，原型模式的最大问题在于共享的本性所导致的，
+        //由于共享，因此因此一个实例修改了引用，另一个也随之更改了引用。因此我们通常不单独使用原型，而是结合原型模式与构造函数模式。
+        console.log("^^^^^^^^^^ Part N. JS OO -- c. prototype. ^^^^^^^^^^^^^^^^");  
+        
+        
+        // Part N. JS OO -- d. hybrid.
+        //混合模式（原型模式 + 构造函数模式）
+        function Blog4(name, url, friend) {
+          this.name = name;
+          this.url = url;
+          this.friend = friend;
+        }
+        Blog4.prototype.alertInfo = function() {
+          console.log(this.name + this.url + this.friend);
+        }
+        var blog = new Blog4('AAA', 'http://tools.aaa.net/', ['fr1', 'fr2', 'fr3']),
+        blog2 = new Blog4('BBB', 'http://**.com', ['a', 'b']);
+        blog.friend.pop();
+        blog.alertInfo();  // AAAhttp://tools.aaa.net/fr1,fr2
+        blog2.alertInfo();  // BBBhttp://**.coma,b
+        //混合模式中构造函数模式用于定义实例属性，而原型模式用于定义方法和共享属性。每个实例都会有自己的一份实例属性，
+        //但同时又共享着方法，最大限度的节省了内存。另外这种模式还支持传递初始参数。
+        //优点甚多。这种模式在ECMAScript中是使用最广泛、认同度最高的一种创建自定义对象的方法。
+        console.log("^^^^^^^^^^ Part N. JS OO -- d. hybrid. ^^^^^^^^^^^^^^^^");  
+        
+        
+        // Part N. JS OO -- e. initialization.
+        //动态原型模式将所有信息封装在了构造函数中，而通过构造函数中初始化原型（仅第一个对象实例化时初始化原型），
+        //这个可以通过判断该方法是否有效而选择是否需要初始化原型。
+        function Blog5(name, url) {
+          this.name = name;
+          this.url = url;
+          if (typeof this.alertInfo != 'function') {
+            // 这段代码只执行了一次
+            console.log('exe time');
+            Blog5.prototype.alertInfo = function() {
+              alert(thia.name + this.url);
+            }
+          }
+        }       
+        var blog = new Blog5('AAA', 'http://tools.aaa.net'),    //exe time
+        blog2 = new Blog5('BBB', 'http:***.com');
+        //可以看到上面的例子中只弹出一次窗，'exe time'，即当blog初始化时，
+        //这样做blog2就不在需要初始化原型，对于使用这种模式创建对象，可以算是perfect了。
+        console.log("^^^^^^^^^^ Part N. JS OO -- e. initialization. ^^^^^^^^^^^^^^^^");
+        
+        
+        
     </script>
 </head>
 <body>
