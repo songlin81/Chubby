@@ -560,31 +560,28 @@
         ////解决办法有很多，Christian Heilmann建议的方法是：
         ////如果变量和函数不需要在“外面”引用，那么就可以使用一个没有名字的方法将他们全都包起来。
         (function(){
-        var current = null;
-        function init() {
-            //...
-        }
-        function change() {
-            //...
-        }
-        function verify() {
-            //...
-        }
+            var current = null;
+            function init() {
+                //...
+            }
+            function change() {
+                //...
+            }
+            function verify() {
+                //...
+            }
         })();
 
         ////如果变量和函数需要在“外面”引用，需要把你的变量和函数放在一个“命名空间”中
         ////我们这里用一个function做命名空间而不是一个var，因为在前者中声明function更简单，而且能保护隐私数据
         var myNameSpace = function() {
             var current = null;
-        
             function init() {
                 //...
             }
-        
             function change() {
                 //...
             }
-        
             function verify() {
                 //...
             }
@@ -596,6 +593,56 @@
             };
         };
         console.log("^^^^^^^^^^ Part T. Avoid global pollution. ^^^^^^^^^^^^^^^^");
+        
+        
+        //Part U. == and ===.
+        //避免在if和while语句的条件部分进行赋值，如if (a = b)，应该写成if (a == b)，但是在比较是否相等的情况下，
+        //最好使用全等运行符，也就是使用===和!==操作符会相对于==和!=会好点。
+        //==和!=操作符会进行类型强制转换
+        var valueA = "1";
+        var valueB = 1;
+        if (valueA == valueB) {
+            console.log("Equal");
+        }
+        else {
+            console.log("Not equal");
+        }
+        //output: "Equal"
+        if (valueA === valueB) {
+            console.log("Equal");
+        }
+        else {
+            console.log("Not equal");
+        }
+        //output: "Not equal"
+        console.log("^^^^^^^^^^ Part U. == and ===. ^^^^^^^^^^^^^^^^");
+        
+        
+        //Part V. Avoid implicit boxing 
+        //对string的方法调用，比如’xxx’.length，浏览器会进行一个隐式的装箱操作，将字符串先转换成一个String对象。
+        //推荐对声明有可能使用String实例方法的字符串时，采用如下写法：
+        var myString = new String('Hello World');
+        console.log(myString.length);
+        console.log("^^^^^^^^^^ Part V. Avoid implicit boxing. ^^^^^^^^^^^^^^^^");
+        
+        
+        //Part W. Use Literals.
+        var aTest = new Array(); //替换为
+        var aTest = [];
+        
+        var aTest = new Object; //替换为
+        var aTest = {};
+        
+        var reg = new RegExp(); //替换为
+        var reg = /../;
+        
+        //如果要创建具有一些特性的一般对象，也可以使用字面量，如下：
+        var oFruit = {};
+        oFruit.color = "red";
+        oFruit.name = "apple";
+        //前面的代码可用对象字面量来改写成这样：
+        var oFruit = { color: "red", name: "apple" };
+        console.log("^^^^^^^^^^ Part W. Literals. ^^^^^^^^^^^^^^^^");
         
         
     </script>

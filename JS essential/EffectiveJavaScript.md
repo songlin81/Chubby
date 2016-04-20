@@ -77,23 +77,6 @@ s+=c;
 9. 插入迭代器
 如var name=values[i]; i++;前面两条语句可以写成var name=values[i++]
 
-10. 使用直接量
-        var aTest = new Array(); //替换为
-        var aTest = [];
-        
-        var aTest = new Object; //替换为
-        var aTest = {};
-        
-        var reg = new RegExp(); //替换为
-        var reg = /../;
-        
-        //如果要创建具有一些特性的一般对象，也可以使用字面量，如下：
-        var oFruit = {};
-        oFruit.color = "red";
-        oFruit.name = "apple";
-        //前面的代码可用对象字面量来改写成这样：
-        var oFruit = { color: "red", name: "apple" };
-
 11. 使用DocumentFragment优化多次append
 一旦需要更新DOM,请考虑使用文档碎片来构建DOM结构，然后再将其添加到现存的文档中。
         for (var i = 0; i < 1000; i++) {
@@ -404,11 +387,6 @@ IE下，脚本创建的dom对象，如果没有append到页面中，刷新页面
             }
         }
 
-30. 避免string的隐式装箱
-对string的方法调用，比如’xxx’.length，浏览器会进行一个隐式的装箱操作，将字符串先转换成一个String对象。
-推荐对声明有可能使用String实例方法的字符串时，采用如下写法：
-var myString = new String(‘Hello World’);
-
 31. 松散耦合
     1、解耦HTML/JavaScript
     JavaScript和HTML的紧密耦合：直接写在HTML中的JavaScript、使用包含内联代码的<script>元素、
@@ -482,26 +460,6 @@ var myString = new String(‘Hello World’);
             alert(F1());  //output: 3 
             alert(F2());  //ouput: undefined
 
-34. ==和===的区别
-避免在if和while语句的条件部分进行赋值，如if (a = b)，应该写成if (a == b)，但是在比较是否相等的情况下，
-最好使用全等运行符，也就是使用===和!==操作符会相对于==和!=会好点。
-==和!=操作符会进行类型强制转换
-        var valueA = "1";
-        var valueB = 1;
-        if (valueA == valueB) {
-            alert("Equal");
-        }
-        else {
-            alert("Not equal");
-        }
-        //output: "Equal"
-        if (valueA === valueB) {
-            alert("Equal");
-        }
-        else {
-            alert("Not equal");
-        }
-        //output: "Not equal"
 
 37. 总是检查数据类型
 要检查你的方法输入的所有数据，一方面是为了安全性，另一方面也是为了可用性。用户随时随地都会输入错误的数据。
