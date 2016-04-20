@@ -458,10 +458,33 @@
         console.log("^^^^^^^^^^ Part N. JS OO -- e. initialization. ^^^^^^^^^^^^^^^^");
         
         
+        // Part O. timer
+        var timer = null, SLEEP = 1000, interval=10;
+        var timef = function ()
+        {
+            //var time = document.getElementById ('time');
+            if ((interval--) == 1)
+            {
+                clearTimeout (timer);
+                document.getElementById ('btn').removeAttribute("disabled");
+                document.getElementById ('btn').value="获取验证码";
+                interval=10;
+                return;
+            }
+            document.getElementById ('btn').setAttribute("disabled", true);
+            document.getElementById ('btn').value=interval+'s';
+            timer = setTimeout (timef, SLEEP);
+        }
+        var reset=function(){
+            document.getElementById ('btn').removeAttribute("disabled");
+        }
+        console.log("^^^^^^^^^^ Part O. timer ^^^^^^^^^^^^^^^^");
+        
+        
         
     </script>
 </head>
-<body>
+<body onunload="reset()">
     <div>Press F12 to view results in Console</div>
     <button type="button" id="testBtn">test</button>  
     <script>
@@ -495,5 +518,9 @@
         }());
         console.log("^^^^^^^^^^ Part L. new and event ^^^^^^^^^^^^^^^^");
     </script>
+    
+    <br/>
+    <!-- Part O. timer -->
+    <input onclick="timef();" id="btn" type="button" value="获取验证码" style="width:111px;height:11px"></button>
 </body>
 </html>
