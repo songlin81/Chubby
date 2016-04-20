@@ -325,6 +325,67 @@
         console.log(myTest); //String "test2"
         console.log("^^^^^^^^^^ Part M. New operator -- c. function with return new value. ^^^^^^^^^^^^^^^^");
         
+        
+        // Part N. JS OO -- a. factory.
+        // 工厂模式是软件工程领域一种广为人知的设计模式，而由于在ECMAScript中无法创建类，因此用函数封装以特定接口创建对象。
+        // 其实现方法非常简单，也就是在函数内创建一个对象，给对象赋予属性及方法再将对象返回即可。
+        function createBlog(name, url) {
+          var o = new Object();
+          o.name = name;
+          o.url = url;
+          o.sayUrl= function() {
+            console.log(this.url);
+          }
+          return o;
+        }
+        var blog1 = createBlog('ZZZ', 'http://www.zzz.net/');
+        blog1.sayUrl(); 
+        //可以看到工厂模式的实现方法非常简单，解决了创建多个相似对象的问题，但是工厂模式却无从识别对象的类型，
+        //因为全部都是Object，不像Date、Array等，因此出现了构造函数模式。
+        console.log("^^^^^^^^^^ Part N. JS OO -- a. factory ^^^^^^^^^^^^^^^^");
+
+
+        // Part N. JS OO -- b. contructor.
+        // 构造函数模式: ECMAScript中构造函数可以创建特定类型的对象，类似于Array、Date等原生JS的对象。其实现方法如下：
+        function Blogger(name, url) {
+          this.name = name;
+          this.url = url;
+          this.alertUrl = function() {
+            console.log(this.url);
+          }
+        }
+        var blog = new Blogger('AAA', 'http://www.AAA.net/');
+        console.log(blog instanceof Blogger);  // true， 判断blog是否是Blog的实例，即解决了工厂模式中不能     
+        //这个例子与工厂模式中除了函数名不同以外，细心的童鞋应该发现许多不同之处：
+        //函数名首写字母为大写　　（虽然标准没有严格规定首写字母为大写，但按照惯例，构造函数的首写字母用大写
+        //没有显示的创建对象
+        //直接将属性和方法赋值给了this对象
+        //没有return语句
+        //使用new创建对象
+        //能够识别对象（这正是构造函数模式胜于工厂模式的地方）
+        //构造函数虽然好用，但也并非没有缺点，使用构造函数的最大的问题在于每次创建实例的时候都要重新创建一次方法（
+        //理论上每次创建对象的时候对象的属性均不同，而对象的方法是相同的），然而创建两次完全相同的方法是没有必要的，
+        //因此，我们可以将函数移到对象外面（也许有些童鞋已经看出缺点，嘘！）。
+        function Blogger2(name, url) {
+          this.name = name;
+          this.url = url;
+          this.alertUrl = alertUrl;
+        }    
+        function alertUrl() {
+          console.log(this.url);
+        }
+        var blog = new Blogger2('BBB', 'http://www.bbb.net/'),
+        blog2 = new Blogger2('CCC', 'http://www.ccc.net/');
+        blog.alertUrl();  // http://www.bbb.net/
+        blog2.alertUrl();  // http://www.ccc.net/
+        //我们将alertUrl设置成全局函数，这样一来blog与blog2访问的都是同一个函数，可是问题又来了，
+        //在全局作用域中定义了一个实际只想让Blog使用的函数，显示让全局作用域有些名副其实，
+        //更让人无法接受的是在全局作用域中定义了许多仅供特定对象使用的方法，浪费空间不说，
+        //显然失去了面向对象封装性了，因此可以通过原型来解决此问题。
+        console.log("^^^^^^^^^^ Part N. JS OO -- b. contructor ^^^^^^^^^^^^^^^^");
+
+        
+       
     </script>
 </head>
 <body>
