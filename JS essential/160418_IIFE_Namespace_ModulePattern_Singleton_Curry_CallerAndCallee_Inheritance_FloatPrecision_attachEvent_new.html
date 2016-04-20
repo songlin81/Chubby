@@ -491,20 +491,111 @@
         //二、js函数后加分号
         //例如
         //// 模块1, 前面有若干代码
-        var Manager = {
-            prop: '',
-            method: function () {
-            }
-        }
+        //var Manager = {
+        //    prop: '',
+        //    method: function () {
+        //    }
+        //}
         //// 模块2，开头是个立即执行函数
         (function () {
             // 代码
         })()
-        //
         //经过压缩后变成：  }}(function 那里，会被当成一个函数来执行，于是整体的解析就会出错了
-        var Manager = {prop: '',method: function (){}}(function () {})()
+        //var Manager = {prop: 'aaa',method: function (){}}(function () {})()
         //解决方法： 是在Manager函数后加分号.
         console.log("^^^^^^^^^^ Part P. semicolon in Javascript ^^^^^^^^^^^^^^^^");
+        
+        
+        // Part Q. Release resources.
+        //a. 释放javascript对象
+        //在rich应用中，随着实例化对象数量的增加，内存消耗会越来越大。所以应当及时释放对对象的引用，让GC能够回收这些内存控件。
+        //对象：
+        //    obj = null
+        //对象属性：
+        //    delete obj.myproperty
+        //数组item：使用数组的splice方法释放数组中不用的item
+        
+        //b. 释放dom元素占用的内存
+        //将dom元素的innerHTML设置为空字符串，可以释放其子元素占用的内存。
+        //在rich应用中，用户也许会在一个页面上停留很长时间，可以使用该方法释放积累得越来越多的dom元素使用的内存。
+        console.log("^^^^^^^^^^ Part Q. Release resources. ^^^^^^^^^^^^^^^^");
+        
+        
+        // Part R. avoid repetition.
+        //重复使用的调用结果，事先保存到局部变量
+        //避免多次取值的调用开销
+        //var h1 = element1.clientHeight + num1;
+        //var h2 = element1.clientHeight + num2;
+        //可以替换为：
+        //var eleHeight = element1.clientHeight;
+        //var h1 = eleHeight + num1;
+        //var h2 = eleHeight + num2;
+        console.log("^^^^^^^^^^ Part R. avoid repetition. ^^^^^^^^^^^^^^^^");
+        
+        
+        // Part S. number to string.
+        //数字转换成字符串
+        //般最好用”" + 1来将数字转换成字符串，虽然看起来比较丑一点，但事实上这个效率是最高的，性能上来说：
+        //(“” +) > String() > .toString() > new String()
+        console.log("100.01 to string is: "+(""+100.01));
+        console.log("^^^^^^^^^^ Part S. number to string. ^^^^^^^^^^^^^^^^");
+        
+        
+        //// Part T. Avoid global pollution.
+        //全局变量应该全部字母大写，各单词之间用_下划线来连接。尽可能避免全局变量和函数, 尽量减少全局变量的使用，
+        //因为在一个页面中包含的所有JavaScript都在同一个域中运行。
+        //所以如果你的代码中声明了全局变量或者全局函数的话，
+        //后面的代码中载入的脚本文件中的同名变量和函数会覆盖掉（overwrite）你的。
+        ////糟糕的全局变量和全局函数
+        var current = null;
+        function init(){
+            //...
+        }
+        function change() {
+            //...
+        }
+        function verify() {
+            //...
+        }
+        ////解决办法有很多，Christian Heilmann建议的方法是：
+        ////如果变量和函数不需要在“外面”引用，那么就可以使用一个没有名字的方法将他们全都包起来。
+        (function(){
+        var current = null;
+        function init() {
+            //...
+        }
+        function change() {
+            //...
+        }
+        function verify() {
+            //...
+        }
+        })();
+
+        ////如果变量和函数需要在“外面”引用，需要把你的变量和函数放在一个“命名空间”中
+        ////我们这里用一个function做命名空间而不是一个var，因为在前者中声明function更简单，而且能保护隐私数据
+        var myNameSpace = function() {
+            var current = null;
+        
+            function init() {
+                //...
+            }
+        
+            function change() {
+                //...
+            }
+        
+            function verify() {
+                //...
+            }
+            //所有需要在命名空间外调用的函数和属性都要写在return里面
+            return {
+                init: init,
+                //甚至你可以为函数和属性命名一个别名
+                set: change
+            };
+        };
+        console.log("^^^^^^^^^^ Part T. Avoid global pollution. ^^^^^^^^^^^^^^^^");
         
         
     </script>
