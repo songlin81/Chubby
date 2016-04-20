@@ -629,13 +629,10 @@
         //Part W. Use Literals.
         var aTest = new Array(); //替换为
         var aTest = [];
-        
         var aTest = new Object; //替换为
         var aTest = {};
-        
         var reg = new RegExp(); //替换为
         var reg = /../;
-        
         //如果要创建具有一些特性的一般对象，也可以使用字面量，如下：
         var oFruit = {};
         oFruit.color = "red";
@@ -643,6 +640,24 @@
         //前面的代码可用对象字面量来改写成这样：
         var oFruit = { color: "red", name: "apple" };
         console.log("^^^^^^^^^^ Part W. Literals. ^^^^^^^^^^^^^^^^");
+        
+        
+        //Part X. 巧用||和&&布尔运算符
+        function eventHandler(e) {
+            if (!e) e = window.event;
+        }
+        //可以替换为：
+        function eventHandler2(e) {
+            e = e || window.event;
+        }
+
+        var myobj;
+        if (myobj) {
+            doSomething(myobj);
+        }
+        //可以替换为：
+        myobj && doSomething(myobj);
+        console.log("^^^^^^^^^^ Part X. Usage of || and &&  ^^^^^^^^^^^^^^^^");
         
         
     </script>
