@@ -1,0 +1,13 @@
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\CultureInfo\bin\Debug\FS.exe.config
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\CultureInfo\bin\Debug\FS.exe
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\CultureInfo\bin\Debug\FS.pdb
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\CultureInfo\bin\Debug\Microsoft.Practices.EnterpriseLibrary.PolicyInjection.dll
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\CultureInfo\bin\Debug\ServiceLayer.dll
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\CultureInfo\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\CultureInfo\bin\Debug\ServiceLayer.pdb
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\CultureInfo\obj\Debug\FormSnippets.csprojResolveAssemblyReference.cache
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\CultureInfo\obj\Debug\FS.Form1.resources
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\CultureInfo\obj\Debug\FS.Properties.Resources.resources
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\CultureInfo\obj\Debug\FormSnippets.csproj.GenerateResource.Cache
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\CultureInfo\obj\Debug\FS.exe
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\CultureInfo\obj\Debug\FS.pdb
