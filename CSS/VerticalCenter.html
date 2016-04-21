@@ -3,12 +3,16 @@
     <head>
         <meta charset="utf-8">
         <style type="text/css">
+            html, body{
+                margin:0;
+                height:100%;
+            }
+            
             #parent {
                 display: table;
                 background: #ccc;
-                height:200px;
-                width:400px;
-                margin:20px auto;
+                height:100%;
+                width:100%;
             }
 
             #child {
@@ -20,7 +24,7 @@
     </head>
     <body>      
         <div id="parent">
-            <div id="child">Content here</div>
+            <div id="child">Center contents as table.</div>
         </div>
     </body>
 </html>
