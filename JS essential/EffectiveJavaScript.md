@@ -376,65 +376,6 @@ IE下，脚本创建的dom对象，如果没有append到页面中，刷新页面
             }
         }
 
-31. 松散耦合
-    1、解耦HTML/JavaScript
-    JavaScript和HTML的紧密耦合：直接写在HTML中的JavaScript、使用包含内联代码的<script>元素、
-    使用HTML属性来分配事件处理程序等
-    HTML和JavaScript的紧密耦合：JavaScript中包含HTML，然后使用innerHTML来插入一段html文本到页面
-    其实应该是保持层次的分离，这样可以很容易的确定错误的来源，所以我们应确保HTML呈现应该尽可能与JavaScript保持分离
-    2、解耦CSS/JavaScript
-    显示问题的唯一来源应该是CSS，行为问题的唯一来源应该是JavaScript，
-    层次之间保持松散耦合才可以让你的应用程序更加易于维护，
-    所以像以下的代码element.style.color=”red”尽量改为element.className=”edit”，
-    而且不要在css中通过表达式嵌入JavaScript
-    3、解耦应用程序/事件处理程序
-    将应用逻辑和事件处理程序相分离：一个事件处理程序应该从事件对象中提取，并将这些信息传送给处理应用逻辑的某个方法中。
-    这样做的好处首先可以让你更容易更改触发特定过程的事件，其次可以在不附加事件的情况下测试代码，使其更易创建单元测试
-
-32. 性能方面的注意事项
-
-    1、尽量使用原生方法
-    
-    2、switch语句相对if较快
-    通过将case语句按照最可能到最不可能的顺序进行组织
-    
-    3、位运算较快
-    当进行数字运算时，位运算操作要比任何布尔运算或者算数运算快
-
-33. 避免错误应注意的地方
-
-    1、每条语句末尾须加分号
-    在if语句中，即使条件表达式只有一条语句也要用{}把它括起来，以免后续如果添加了语句之后造成逻辑错误
-    
-    2、使用+号时需谨慎
-    JavaScript 和其他编程语言不同的是，在 JavaScript 中，’+'除了表示数字值相加，字符串相连接以外，
-    还可以作一元运算符用，把字符串转换为数字。
-    因而如果使用不当，则可能与自增符’++’混淆而引起计算错误
-            var valueA = 20;
-            var valueB = "10";
-            alert(valueA + valueB);     //ouput: 2010 
-            alert(valueA + (+valueB));  //output: 30 
-            alert(valueA + +valueB);    //output:30 
-            alert(valueA ++ valueB);     //Compile error
-    
-    3、使用return语句需要注意
-    一条有返回值的return语句不要用()括号来括住返回值，如果返回表达式，则表达式应与return关键字在同一行，
-    以避免压缩时，压缩工具自动加分号而造成返回与开发人员不一致的结果
-            function F1() {
-                var valueA = 1;
-                var valueB = 2;
-                return valueA + valueB;
-            }
-            function F2() {
-                var valueA = 1;
-                var valueB = 2;
-                return
-                valueA + valueB;
-            }
-            alert(F1());  //output: 3 
-            alert(F2());  //ouput: undefined
-
-
 37. 总是检查数据类型
 要检查你的方法输入的所有数据，一方面是为了安全性，另一方面也是为了可用性。用户随时随地都会输入错误的数据。
 这不是因为他们蠢，而是因为他们很忙，并且思考的方式跟你不同。
@@ -444,13 +385,3 @@ IE下，脚本创建的dom对象，如果没有append到页面中，刷新页面
 虽然在JavaScript当中，双引号和单引号都可以表示字符串, 为了避免混乱，我们建议在HTML中使用双引号，
 在JavaScript中使用单引号，但为了兼容各个浏览器，也为了解析时不会出错，
 定义JSON对象时，最好使用双引号
-
-39. 部署
-    用JSLint运行JavaScript验证器来确保没有语法错误或者是代码没有潜在的问
-    部署之前推荐使用压缩工具将JS文件压缩
-    文件编码统一用UTF-8
-    JavaScript 程序应该尽量放在 .js 的文件中，需要调用的时候在 HTML 中以 <script src=”filename.js”>
-    的形式包含进来。JavaScript 代码若不是该 HTML 文件所专用的，
-    则应尽量避免在 HTML 文件中直接编写 JavaScript 代码。因为这样会大大增加 HTML 文件的大小，
-    无益于代码的压缩和缓存的使用。另外，<script src=”filename.js”> 标签应尽量放在文件的后面,
-    最好是放在</body>标签前。这样会降低因加载 JavaScript 代码而影响页面中其它组件的加载时间。

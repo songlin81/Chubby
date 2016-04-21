@@ -691,6 +691,20 @@
         theFunction.call(undefined, "Claude", "mathematician");
         console.log("^^^^^^^^^^ Part Z. Call & Apply ^^^^^^^^^^^^^^^^");
         
+        
+        //Part AA. operator +
+        //使用+号时需谨慎
+        //JavaScript 和其他编程语言不同的是，在 JavaScript 中，’+'除了表示数字值相加，字符串相连接以外，
+        //还可以作一元运算符用，把字符串转换为数字。
+        //因而如果使用不当，则可能与自增符’++’混淆而引起计算错误
+        var valueA = 20;
+        var valueB = "10";
+        console.log(valueA + valueB);     //ouput: 2010 
+        console.log(valueA + (+valueB));  //output: 30 
+        console.log(valueA + +valueB);    //output:30 
+        //console.log(valueA ++ valueB);     //Compile error
+        console.log("^^^^^^^^^^ Part AA. operator + ^^^^^^^^^^^^^^^^");
+        
     </script>
 </head>
 <body onunload="reset()">
