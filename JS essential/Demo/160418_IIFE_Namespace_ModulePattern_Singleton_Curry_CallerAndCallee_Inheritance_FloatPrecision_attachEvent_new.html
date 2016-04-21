@@ -660,12 +660,36 @@
         console.log("^^^^^^^^^^ Part X. Usage of || and &&  ^^^^^^^^^^^^^^^^");
         
         
-        //Part Y.float to int
+        //Part Y. float to int
         //很多人喜欢使用parseInt()，其实parseInt()是用于将字符串转换成数字，而不是浮点数和整型之间的转换，
         //我们应该使用Math.floor()或者Math.round()
         console.log(parseInt('100.5')+' '+Math.floor(100.5)+' '+Math.round(100.5));
-        console.log("^^^^^^^^^^ Part Y. ^^^^^^^^^^^^^^^^");
+        console.log("^^^^^^^^^^ Part Y. float to int ^^^^^^^^^^^^^^^^");
         
+        
+        //Part Z. Call & Apply
+        //1. Attached function on the fly
+        object1 = {
+            name:'frank',
+            greet:function(){
+                console.log('hello '+this.name)
+            }
+        };
+        object2 = {
+            name:'andy'
+        };
+        // Note that object2 has no greet method, but we may "borrow" from object1:
+        object1.greet.call(object2);
+        
+        //2.The difference is that apply lets you invoke the function with arguments as an array;
+        //call requires the parameters be listed explicitly.
+        function theFunction(name, profession) {
+            console.log("My name is " + name + " and I am a " + profession + ".");
+        }
+        theFunction("John", "fireman");
+        theFunction.apply(undefined, ["Susan", "school teacher"]);
+        theFunction.call(undefined, "Claude", "mathematician");
+        console.log("^^^^^^^^^^ Part Z. Call & Apply ^^^^^^^^^^^^^^^^");
         
     </script>
 </head>
@@ -707,5 +731,18 @@
     <br/>
     <!-- Part O. timer -->
     <input onclick="timef();" id="btn" type="button" value="获取验证码" style="width:111px;height:11px"></button>
+     
+    <!-- Part Z. Call & Apply -->
+    <br/>
+    <a href="www.sina.com">Sina</a><br />
+    <a href="www.sohu.com">Sohu</a><br />
+    <a href="www.yahoo.com">Yahoo</a><br />
+    <script>
+        //Part Z. 3.It retrieves the slice function from an Array.
+        //It then calls that function, but using the result of document.querySelectorAll
+        //as the this object instead of an actual array.
+        console.log([].slice.call(document.querySelectorAll('a')).join(','))
+        console.log("^^^^^^^^^^ Part L. new and event ^^^^^^^^^^^^^^^^");
+    </script>
 </body>
 </html>
