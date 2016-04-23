@@ -1,0 +1,26 @@
+1)	C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\msbuild ..\Common\Common.sln /v:m /clp:ErrorsOnly
+/verbosity:<level>	(Short form: /v:m)
+/consoleloggerparameters:<parameters>	(Short form: /clp)
+
+
+2)	pause
+
+
+3)	call CopyFiles ..\..\Source w:\bin
+set sourcedir=%1
+mkdir "%sourcedir%\UI\UI.Vss\Bin\"
+
+
+4)	xcopy /Y /R "%sourcedir%\ThirdPartyDLL\*.*" "%sourcedir%\UI\UI.Vss\Bin\"
+/Y	Suppresses prompting to confirm you want to overwite an existing destination file.
+/R	Overwrite read-only files.
+
+
+5)	for %%a in ('aaa','bbb') do echo %%a 
+aaa
+bbb
+
+
+6)	%~1 
+有时候文件名包含空格是，会对文件名加双引号。这个功能是去掉双引号
+

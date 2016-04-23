@@ -1,0 +1,14 @@
+C:\Users\v0cn140\Desktop\uld\JQ\SQLBulkCopy\bin\SQLBulkCopy.dll
+C:\Users\v0cn140\Desktop\uld\JQ\SQLBulkCopy\bin\SQLBulkCopy.pdb
+C:\Users\v0cn140\Desktop\uld\JQ\SQLBulkCopy\obj\Debug\SQLBulkCopy.csprojResolveAssemblyReference.cache
+C:\Users\v0cn140\Desktop\uld\JQ\SQLBulkCopy\obj\Debug\SQLBulkCopy.dll
+C:\Users\v0cn140\Desktop\uld\JQ\SQLBulkCopy\obj\Debug\SQLBulkCopy.pdb
+C:\Projects\Fuji\uld\JQ\SQLBulkCopy\bin\SQLBulkCopy.dll
+C:\Projects\Fuji\uld\JQ\SQLBulkCopy\bin\SQLBulkCopy.pdb
+C:\Projects\Fuji\uld\JQ\SQLBulkCopy\obj\Debug\SQLBulkCopy.csprojResolveAssemblyReference.cache
+C:\Projects\Fuji\uld\JQ\SQLBulkCopy\obj\Debug\SQLBulkCopy.dll
+C:\Projects\Fuji\uld\JQ\SQLBulkCopy\obj\Debug\SQLBulkCopy.pdb
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\SQLBulkCopy\bin\SQLBulkCopy.dll
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\SQLBulkCopy\bin\SQLBulkCopy.pdb
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\SQLBulkCopy\obj\Debug\SQLBulkCopy.dll
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\SQLBulkCopy\obj\Debug\SQLBulkCopy.pdb

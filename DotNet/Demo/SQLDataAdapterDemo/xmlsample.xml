@@ -1,0 +1,65 @@
+<music>
+  <song>
+    <id>0</id>
+    <artist>The Chi-lites</artist>
+    <genre>Soul</genre>
+    <album>A lonely man</album>
+    <year>1972</year>
+  </song>
+  <song>
+    <id>1</id>
+    <artist>Babyface</artist>
+    <genre>R&amp;B</genre>
+    <album>unknown</album>
+    <year></year>
+  </song>
+  <song>
+    <id>2</id>
+    <artist>Babyface</artist>
+    <genre>R&amp;B</genre>
+    <album>The essential babyface</album>
+    <year>2001</year>
+  </song>
+  <song>
+    <id>3</id>
+    <artist>Babyface</artist>
+    <genre>R&amp;B</genre>
+    <album>Grown and sexy</album>
+    <year>2005</year>
+  </song>
+  <song>
+    <id>4</id>
+    <artist>Maria Arredondo</artist>
+    <genre>Pop</genre>
+    <album>Not going under</album>
+    <year>2004</year>
+  </song>
+  <song>
+    <id>5</id>
+    <artist>Leona Lewis</artist>
+    <genre>Pop</genre>
+    <album>Unknown</album>
+    <year>2008</year>
+  </song>
+  <song>
+    <id>6</id>
+    <artist>Usher</artist>
+    <genre>R&amp;B</genre>
+    <album>Usher</album>
+    <year>2008</year>
+  </song>
+  <song>
+    <id>7</id>
+    <artist>Christina Aguilera</artist>
+    <genre>Blues</genre>
+    <album>Back to basics</album>
+    <year>2004</year>
+  </song>
+  <song>
+    <id>8</id>
+    <artist>Sting</artist>
+    <genre>Pop</genre>
+    <album>Shape of my heart</album>
+    <year></year>
+  </song>
+</music>
