@@ -90,3 +90,17 @@
         alert("clicked: " + item.v + " @ " + event.clientX + ": " + event.clientY);
       }
     });
+    
+    //16. factory
+    app.factory("StringUtil", function(){
+      return {
+        getReverseString: function(inputString) {return inputString.split("").reverse().join("");},
+        getCharacterCount: function(inputString) {return inputString.length;}
+      };
+    });
+    app.controller("MyControllerFcty", ["$scope", "StringUtil", function($scope, StringUtil) {
+      $scope.originalString = "Sandeep Kumar Patel";
+      $scope.reverseString = StringUtil.getReverseString($scope.originalString);
+      $scope.characterCount = StringUtil.getCharacterCount($scope.originalString);
+      }
+    ]);
