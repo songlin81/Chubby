@@ -1,0 +1,120 @@
+<html>
+
+    <body>
+        <script type="text/javascript">
+            //1. let
+            function f1() {
+                var a = 8;
+                let n = 5;
+                if (true) {
+                    let n = 10;
+                    var a = 20
+                }
+                document.write(n+"<br>"); // 5
+                document.write(a+"<br>"); // 20
+            }
+            f1();
+            
+            //2. const
+            const PI = 3.1415;
+            document.write(PI+"<br>"); // 3.1415
+            //PI = 3; //TypeError: invalid assignment to const `PI'
+            //document.write(PI+"<br>");// PI = 3.1415
+            
+            const C1 = {};
+            C1.a = 1;
+            document.write(C1.a+"<br>"); // 1
+            //C1 = {}; // 报错 重新赋值，地址改变
+             
+            //冻结对象，此时前面用不用const都是一个效果
+            const C2 = Object.freeze({});
+            C2.a = 1; //Error,对象不可扩展
+            document.write(C2.a+"<br>");
+            
+            //3.
+            var str = "Hello world!";
+            document.write(str.startsWith("Hello")+"<br>"); // true
+            document.write(str.endsWith("!")+"<br>"); // true
+            document.write(str.includes("o")+"<br>"); // true
+            document.write(str.startsWith("world", 6)+"<br>"); // true
+            document.write(str.endsWith("Hello", 5)+"<br>"); // true
+            document.write(str.includes("Hello", 6)+"<br>"); // false
+
+            //4.
+            var str = "x";
+            document.write(str.repeat(3)+"<br>");  // "xxx" 
+            var str1 = "hello";
+            document.write(str1.repeat(2)+"<br>");  // "hellohello"
+
+            //5.
+            let first = 'h1';
+            let last = 'h2';
+            document.write(`Hello ${first} ${last}!`+"<br>");
+            
+            var a = 5;
+            var b = 10;
+             
+            function tag(s, v1, v2) {
+                document.write(s[0]);
+                document.write(s[1]);
+                document.write(v1);
+                document.write(v2);
+                return "OK";
+            }
+            var tesmp=tag`Hello ${ a + b } world ${ a * b}`;
+            document.write(tesmp+"<br>");
+            // "Hello "
+            // " world "
+            // 15
+            // 50
+            // "OK"
+            
+            //6.
+            let raw = String.raw`Not a newline: \n`;
+            document.write(raw === 'Not a newline: \\n'); // true
+            
+            
+            //7.
+            var Person = {
+                name: 'roger',
+                birth:'1990-01-01',
+                // 等同于hello: function ()...
+                hello() { document.write('todo: ', this.name); }
+            };
+            Person.hello();
+            
+            //8. 
+            let propKey = 'foo';
+            let obj = {
+                [propKey]: true,
+                ['a'+'bc']: 123
+            };
+            document.write(obj.foo+"<br>");
+            document.write(obj.abc+"<br>");
+          
+            //9.
+            document.write((+0 === -0)+"<br>"); //true
+            document.write((NaN === NaN)+"<br>"); // false
+            document.write(Object.is(+0, -0)+"<br>"); // false
+            document.write(Object.is(NaN, NaN)+"<br>"); // true
+            
+            //10.
+            var target = { a: 1, b: 1 };
+            var source1 = { b: 2, c: 2 };
+            var source2 = { c: 3 };
+            Object.assign(target, source1, source2);
+            document.write(target.c+"<br>"); // {a:1, b:2, c:3}
+        
+            //11.
+            let s = Symbol();
+            document.write((typeof s)+"<br>"); // "symbol"
+            var sym = Symbol('My symbol');
+            document.write(String(sym)+"<br>"); // 'Symbol(My symbol)'
+            document.write(sym.toString()+"<br>"); // 'Symbol(My symbol)'
+
+            //12.
+            http://www.cnblogs.com/jasonnode/p/4653553.html
+        </script> 
+    </body>
+
+</html>
