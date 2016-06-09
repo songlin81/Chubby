@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>ES6 </title>
+	</head>
+	<body>
+		 <button id="tempBtn" type="button">Click Me!</button> 
+	<script>
+	//1. Object literal
+	function createPerson(firstName, lastName) {
+		return {
+			firstName,
+			lastName
+		}
+	}
+	var Console = Console || 
+				{
+					log: function(input){ 
+							console.log(input + '!!!');
+						}
+				};	
+	var person = createPerson('Jay','Bird');
+	Console.log(person.firstName+'...'+person.lastName);
+	
+	//2. Class + Default Values
+	class Song {
+	  constructor(title, artist, duration, isPlaying = false) {
+		this.title = title;
+		this.artist = artist;
+		this.duration = duration;
+		this.isPlaying = isPlaying; 
+	  }
+	  start() {
+		this.isPlaying = true;
+	  }
+	  stop() {
+		this.isPlaying = false;
+	  }
+	}
+	var song=new Song('Times','Jay','2010');
+	song.start();
+	Console.log((song.isPlaying === true)+'...'+song.title);
+	
+	//3. Inheritance
+	class Media {
+		constructor(title, duration, isPlaying = false) {
+		this.title = title;
+		this.duration = duration;
+		this.isPlaying = isPlaying; 
+	  }  
+	  start() {
+		this.isPlaying = true;
+	  }
+	  stop() {
+		this.isPlaying = false;
+	  }
+	}
+	class Movie extends Media {
+	  constructor(title, year, duration, isPlaying = false) {
+		super(title, duration, isPlaying);
+		this.year = year;
+	  }
+	    toString() {
+			return `<li>${this.title} - ${this.isPlaying} <span>${this.duration}</span></li>`;
+		}
+	}
+	var movie = new Movie('Speed',1995, 120);
+	Console.log((movie.isPlaying === true)+'...'+movie.year);
+	
+	//4. Arrow Function
+	class Contact {
+	  constructor(name, email, button) {
+		this.name = name;
+		this.email = email;	
+		document.getElementById(button).onclick=(event) => {
+		  Console.log(this.email);
+		}
+	  }
+	}
+	var contact = new Contact('Tim','tim.bird@forsan.com', 'tempBtn');
+	
+	var oneToFive = [1,2,3,4,5];
+	var twoToTen = oneToFive.map(n => n * 2);
+	Console.log(twoToTen);
+	
+	//5. let
+	for (let i = 0; i < 10; i++) {
+	  console.log(i);
+	}
+	if (typeof(i) != 'undefined') {
+		Console.log('i is defined');
+	}
+	else{
+		Console.log('i is undefined');
+	}
+	
+	//6. const 
+	//const admin = "Andrew";
+	//admin = "Kenneth"; // "admin" is read-only
+	const admin2 = {name: "Andrew"};
+	admin2.name = "Kenneth";
+	Console.log(admin2.name);
+	
+	//7. Rest & Spread
+	var runners = ["Mary", "Andrew", "Craig", "Michael", "Kenneth", "Dave"];
+	function getLosers(first, second, third, ...losers) {
+	  return losers;
+	}
+	Console.log(getLosers(...runners));
+	
+	//8. Template Strings
+	console.log(movie.toString());
+	
+	//9. Destructuring
+	var [first, second, third] = ["Andrew", "Craig", "Kenneth"];
+	Console.log(first);
+	Console.log(second);
+	Console.log(third);
+	
+	var person = {
+	  firstName: "Andrew",
+	  lastName: "Chalkley"
+	}
+	var {firstName, lastName} = person;
+	Console.log(firstName);
+	Console.log(lastName);
+	
+	var person = {
+	  firstName: "Andrew",
+	  lastName: "Chalkley"
+	}
+	var {firstName: first, lastName: last} = person;
+	Console.log(first);
+	Console.log(last);
+	
+	var person = {
+	  firstName: "Andrew",
+	  lastName: "Chalkley"
+	}
+	function getFirstName({firstName: first}) {
+	  return first;
+	}
+	Console.log(getFirstName(person));
+	</script>
+</body>
+
+ </html>
