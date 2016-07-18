@@ -1,5 +1,5 @@
-   angular.module('xmpl.service', [])
-    .value('greeter', {
+angular.module('ngapp.value', [])
+  .value('greeter', {
       salutation: 'Hello',
       localize: function(localization) {
         this.salutation = localization.salutation;
@@ -7,10 +7,10 @@
       greet: function(name) {
         return this.salutation + ' ' + name + '!!!';
       }
-    })
-    .value('user', {
-      load: function(name) {
-        this.name = name;
-      }
-  });
-  
+  })
+  .value('user', {
+    load: function(name) {
+      this.name = name;
+    }
+  })
+  .constant('constanttest', '***');
