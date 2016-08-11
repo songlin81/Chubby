@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang='en' ng-app='app'>
+  <head><title>NG 1.0</title></head>
+
+  <body ng-controller="SomeController">
+    <button ng-click="clickUnfocused()">Not focused</button> 
+    <button ngbk-focus ng-click="clickFocused()">I'm very focused!</button>
+    
+    <div>{{message.text}}</div>
+    
+    <div>{{ 'World' | greet }}<br></div>
+
+    <div>{{ greeting }}<br></div>
+    
+    <ul><li ng-repeat="todo in todos">
+      <input type="checkbox" ng-model="todo.completed">{{ todo.title }} --> {{ todo.completed }}
+    </li></ul>
+    
+    <input ng-model="nameZZ"> Hello {{ nameZZ }}
+    
+    <div ng-controller="HelloController"><h2>Render {{helloTo.title}}</h2></div>
+
+    <div ng-controller="MyController"><span>{{myData.textf()}}</span></div>
+    <div ng-controller="MyController"><span ng-bind="myData.textf()"></span></div>
+
+    <div ng-controller="MyController">
+      <span ng-show="myData.showIt">SHOW</span>
+      <span ng-hide="myData.hideIt">HIDE</span>
+    </div>
+
+    <div ng-controller="MyController">
+      <div ng-switch on="myData.switch">
+        <div ng-switch-when="1">Shown when switch is 1</div>
+        <div ng-switch-when="2">Shown when switch is 2</div>
+        <div ng-switch-default>Shown when switch is anything else than 1 and 2</div>
+      </div>
+    </div>
+
+    <div ng-controller="MyController"><div ng-if="myData.showIt">ng-if Show it</div></div>
+    <div ng-controller="MyController"><div ng-include="myData.showIt && 'fragment-1.html' || 'fragment-2.html'"></div></div>
+
+    <div ng-controller="MyController">
+      <ol><li ng-repeat="theItem in myData.items">{{theItem.text}}</li></ol>
+      <ol><li ng-repeat="theItem in myData.getItems()">{{theItem.text}}</li></ol>
+      <ol><li ng-repeat="(name, value) in myData.myObject">{{$index}}-{{$first}}-{{$middle}}-{{$last}}-{{name}} = {{value}}</li></ol>
+      <div ng-repeat="item in myData.items | filter: itemFilter | orderBy:sortField:reverse | limitTo: 1" >{{item.text | uppercase}}</div>
+      
+      <ol><li ng-repeat="item in filteredItems = ( myData.items | filter:filterArray) ">{{item.text}} : {{$first}}, {{$middle}}, {{$last}}</li></ol>
+      <div>{{filteredItems.length}}</div>
+
+      <div>Filtered: {{myData.textContent | myFilter}}</div>
+      <div>Filtered: {{myData.textContent | myFilter2:2:5}}</div>
+      
+      <h3>Using Service</h3>
+      <button ng-click="HelloService()">Hello Service</button>
+      <button ng-click="SumService()">Sum Service</button>
+      <div ng-bind="ServiceOutput">data</div>
+  
+      <h3>Using Provider</h3>
+      <button ng-click="HelloProvider()">Hello Service</button>
+      <button ng-click="SumProvider()">Sum Service</button>
+      <div ng-bind="ProviderOutput"></div>
+    </div>
+
+    <div ng-controller="myController1">{{data.theVar}}</div>
+    <div ng-controller="myController2">
+      <div ng-click="myData.doClick($event)">Click here - {{data.theVar}}</div>
+      <ul><li ng-repeat="item in myData2.items" ng-click="myData2.doClick(item, $event)">Click here</li></ul>  
+    </div>
+
+    <div ng-controller="MyControllerFcty">
+      <h3>Original String : {{originalString}}</h3>
+      <h3>Reverse String : {{reverseString}}</h3>
+      <h3>Character Count : {{characterCount}}</h3>
+    </div>
+
+    <script src="angular.min.js"></script>
+    <script src="ValueModule.js"></script>
+    <script src="DirectiveModule.js"></script>
+    <script src="FilterModule.js"></script>
+    <script src="FactoryModule.js"></script>
+    <script src="ServiceModule.js"></script>
+    <script src="ProviderModule.js"></script>
+    <script src="app.js"></script>
+  </body>
+
+</html>
