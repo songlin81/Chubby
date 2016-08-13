@@ -10,7 +10,7 @@ CSS 优先级:
     <title>测试Css中的!Important区别</title> 
     </head> 
     <style type="text/css">
-        .testClass{ /Users/wwh/Downloads/IN/CSS/inlineBlock
+        .testClass{
             color:blue !important;
         }
     </style>
