@@ -1,9 +1,0 @@
-C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\CultureInfo\bin\Debug\CultureInfo.exe.config
-C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\CultureInfo\bin\Debug\CultureInfo.exe
-C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\CultureInfo\bin\Debug\CultureInfo.pdb
-C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\CultureInfo\obj\Debug\FromDemo.csprojResolveAssemblyReference.cache
-C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\CultureInfo\obj\Debug\CultureInfo.Form1.resources
-C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\CultureInfo\obj\Debug\CultureInfo.Properties.Resources.resources
-C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\CultureInfo\obj\Debug\FromDemo.csproj.GenerateResource.Cache
-C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\CultureInfo\obj\Debug\CultureInfo.exe
-C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\CultureInfo\obj\Debug\CultureInfo.pdb

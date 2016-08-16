@@ -1,6 +1,0 @@
-C:\Projects\20140603\RegExpressionDemo\RegExpressionDemo\bin\Debug\RegExpressionDemo.exe.config
-C:\Projects\20140603\RegExpressionDemo\RegExpressionDemo\bin\Debug\RegExpressionDemo.exe
-C:\Projects\20140603\RegExpressionDemo\RegExpressionDemo\bin\Debug\RegExpressionDemo.pdb
-C:\Projects\20140603\RegExpressionDemo\RegExpressionDemo\obj\Debug\RegExpressionDemo.csprojResolveAssemblyReference.cache
-C:\Projects\20140603\RegExpressionDemo\RegExpressionDemo\obj\Debug\RegExpressionDemo.exe
-C:\Projects\20140603\RegExpressionDemo\RegExpressionDemo\obj\Debug\RegExpressionDemo.pdb
