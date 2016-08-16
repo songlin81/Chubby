@@ -1,0 +1,11 @@
+C:\Projects\20140501\InterfaceEvent\ServiceLayer\bin\Release\ServiceLayer.dll
+C:\Projects\20140501\InterfaceEvent\ServiceLayer\bin\Release\ServiceLayer.pdb
+C:\Projects\20140501\InterfaceEvent\ServiceLayer\obj\Release\ServiceLayer.dll
+C:\Projects\20140501\InterfaceEvent\ServiceLayer\obj\Release\ServiceLayer.pdb
+C:\Projects\20140501\InterfaceEvent\ServiceLayer\bin\Release\Microsoft.Practices.EnterpriseLibrary.PolicyInjection.dll
+C:\Projects\20140501\InterfaceEvent\ServiceLayer\bin\Release\Microsoft.Practices.EnterpriseLibrary.Common.dll
+W:\Bin\ServiceLayer.dll
+W:\Bin\ServiceLayer.pdb
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\ServiceLayer\obj\Release\ServiceLayer.csprojResolveAssemblyReference.cache
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\ServiceLayer\obj\Release\ServiceLayer.dll
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\ServiceLayer\obj\Release\ServiceLayer.pdb

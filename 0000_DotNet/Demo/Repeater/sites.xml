@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<net-informations.com>
+  <vb.net-informations.com>
+    <Framework />
+    <Programflow />
+  </vb.net-informations.com>
+  <csharp.net-informations.com>
+    <Statements />
+    <Collections />
+  </csharp.net-informations.com>
+  <asp.net-informations.com>
+    <Configurations />
+    <Datacontrols />
+  </asp.net-informations.com>
+</net-informations.com>

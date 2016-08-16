@@ -1,0 +1,6 @@
+C:\Projects\20140603\ExpressionTreesDemo\ExpressionTreesDemo\bin\Debug\ExpressionTreesDemo.exe.config
+C:\Projects\20140603\ExpressionTreesDemo\ExpressionTreesDemo\obj\Debug\ExpressionTreesDemo.csprojResolveAssemblyReference.cache
+C:\Projects\20140603\ExpressionTreesDemo\ExpressionTreesDemo\bin\Debug\ExpressionTreesDemo.exe
+C:\Projects\20140603\ExpressionTreesDemo\ExpressionTreesDemo\bin\Debug\ExpressionTreesDemo.pdb
+C:\Projects\20140603\ExpressionTreesDemo\ExpressionTreesDemo\obj\Debug\ExpressionTreesDemo.exe
+C:\Projects\20140603\ExpressionTreesDemo\ExpressionTreesDemo\obj\Debug\ExpressionTreesDemo.pdb

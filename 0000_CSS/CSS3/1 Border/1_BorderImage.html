@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            #roundCorner
+            {
+                text-align:center;
+                border:2px solid #a1a1a1;
+                padding:10px 40px; 
+                background:#dddddd;
+                width:350px;
+                border-radius:25px;
+                box-shadow: 10px 10px 5px #888888;
+            }
+            div
+            {
+                border:15px solid transparent;
+                width:300px;
+                padding:10px 20px;
+            }
+            #round
+            {
+                -moz-border-image:url("border.png") 30 30 round;	/* Old Firefox */
+                -webkit-border-image:url("border.png") 30 30 round;	/* Safari and Chrome */
+                -o-border-image:url("border.png") 30 30 round;		/* Opera */
+                border-image:url("border.png") 30 30 round;
+            }
+            #stretch
+            {
+                -moz-border-image:url("./border.png") 30 30 stretch;	/* Old Firefox */
+                -webkit-border-image:url("./border.png") 30 30 stretch;	/* Safari and Chrome */
+                -o-border-image:url("./border.png") 30 30 stretch;	/* Opera */
+                border-image:url("./border.png") 30 30 stretch;
+            }
+        </style>
+    </head>
+    <body>       
+        <div id="roundCorner">border-radius 属性允许您向元素添加圆角。</div>
+        <br/>
+        <div id="round">在这里，图片铺满整个边框。</div>
+        <div id="stretch">在这里，图片被拉伸以填充该区域。</div>
+    </body>
+</html>

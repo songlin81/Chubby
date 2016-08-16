@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Table>
+  <websites>
+    <website_logo>http://net-informations.com/logo.png</website_logo>
+    <website_name>http://net-informations.com</website_name>
+  </websites>
+  <websites>
+    <website_logo>http://net-informations.com/logo.png</website_logo>
+    <website_name>http://vb.net-informations.com</website_name>
+  </websites>
+  <websites>
+    <website_logo>http://net-informations.com/logo.png</website_logo>
+    <website_name>http://csharp.net-informations.com</website_name>
+  </websites>
+  <websites>
+    <website_logo>http://net-informations.com/logo.png</website_logo>
+    <website_name>http://asp.net-informations.com</website_name>
+  </websites>
+</Table>

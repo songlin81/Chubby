@@ -1,0 +1,127 @@
+ 自定义格式字符串 IFormattable,IFormatProvider,ICustomFormatter三接口的实现
+
+--------------------
+
+public interface IFormattable
+{
+      string ToString(string format, IFormatProvider formatProvider);
+}
+
+public interface IFormatProvider
+{
+      object GetFormat(Type formatType);
+}
+
+public interface ICustomFormatter
+{
+      string Format(string format, object arg, IFormatProvider formatProvider);
+}
+
+--------------------
+
+定义一个类
+using System;
+namespace MyFormat
+{
+    public class MyClass : System.IFormattable
+    {
+        Double d;
+
+        public MyClass(Double d)
+        {
+            this.d=d;
+        }
+
+        public string ToString(string format, IFormatProvider formatProvider)
+        {
+            return (format=="MyFormat")?"***"+d.ToString(formatProvider):d.ToString(format,formatProvider);
+        }
+    }
+}
+
+再到一控制台中
+System.Globalization.CultureInfo culture=null;
+
+            MyClass myClass=new MyClass(5);
+            //当IFormatProvider为空时,调用的是当前线程关联的文化信息
+            Console.WriteLine("显示中国货币格式:{0}",myClass.ToString("C",null));
+
+            culture=System.Globalization.CultureInfo.CurrentCulture;
+            Console.WriteLine("显示当前系统默认货币格式:{0}",myClass.ToString("C",culture));
+
+            culture=new System.Globalization.CultureInfo("zh-HK");
+            Console.WriteLine("显示香港特别行政区货币格式:{0}",myClass.ToString("C",culture));
+
+            Console.WriteLine("显示我自己定义的货币格式:{0}",myClass.ToString("MyFormat",null));
+            
+            Console.ReadLine();
+
+--------------------
+
+如果希望自定义格式化能在多个不同类使用，那么实现我们应该实现ICustomFormatter接口
+
+定义一个类
+using System;
+
+namespace MyFormat
+{
+    public class MyBaseFormat : System.ICustomFormatter, System.IFormatProvider
+    {
+        //如果format Type与当前实例类型相同，则为当前实例，否则为空引用
+        public object GetFormat(Type format)
+        {
+            if (format == typeof (ICustomFormatter))
+                return this;
+            return null;
+        }
+
+        //实现Format方法说明:
+        //如果您的格式方法不支持格式，则确定正在设置格式的对象是否实现 IFormattable 接口。
+        //如果实现，请调用该接口的IFormattable.ToString 方法。
+        //否则，调用基础对象的默认 Object.ToString 方法。
+        public string Format (string format, object arg, IFormatProvider provider)
+        {
+            if (format == null)
+            {
+                if (arg is IFormattable)
+                    return ((IFormattable)arg).ToString(format, provider);
+                return arg.ToString();
+            }
+            else
+            {
+                if (format=="MyBaseFormat")  
+                {
+                    return "***"+arg.ToString();
+                }
+                else
+                {
+                    if (arg is IFormattable)
+                        return ((IFormattable)arg).ToString(format, provider);
+                    return arg.ToString();
+                }
+            }
+        }
+    }
+}
+
+到一控制台中
+            string printString=String.Empty;
+            int i=100;
+            MyBaseFormat myBaseFormat=new MyBaseFormat();
+
+            printString=string.Format(myBaseFormat,"显示正常格式:{0}",i);
+            Console.WriteLine(printString);
+            printString=string.Format(myBaseFormat,"显示正常格式:{0:C}",i);
+            Console.WriteLine(printString);
+            printString=string.Format(myBaseFormat,"显示自定义格式{0:MyBaseFormat}",i);
+            Console.WriteLine(printString);
+
+            Console.ReadLine();
+            
+------------------------
+
+小总结:
+1.如果需要您自己的格式化包含在某个类上，在该类上实现IFormattable接口
+2.如果希望自定义格式化并使它可供多个不同类使用，那么实现 ICustomFormatter接口
+
+

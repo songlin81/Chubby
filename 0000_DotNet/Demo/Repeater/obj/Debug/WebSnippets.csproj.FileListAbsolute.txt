@@ -1,0 +1,5 @@
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\Repeater\bin\Repeater.dll
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\Repeater\bin\Repeater.pdb
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\Repeater\obj\Debug\WebSnippets.csprojResolveAssemblyReference.cache
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\Repeater\obj\Debug\Repeater.dll
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\Repeater\obj\Debug\Repeater.pdb

@@ -1,0 +1,6 @@
+C:\wasabi\Fishery\TransferDepositAccount\bin\Debug\TransferDepositAccount.exe
+C:\wasabi\Fishery\TransferDepositAccount\bin\Debug\TransferDepositAccount.pdb
+C:\wasabi\Fishery\TransferDepositAccount\obj\Debug\TransferDepositAccount.exe
+C:\wasabi\Fishery\TransferDepositAccount\obj\Debug\TransferDepositAccount.pdb
+C:\Projects\wasabi\Fishery\TransferDepositAccount\obj\Debug\TransferDepositAccount.exe
+C:\Projects\wasabi\Fishery\TransferDepositAccount\obj\Debug\TransferDepositAccount.pdb

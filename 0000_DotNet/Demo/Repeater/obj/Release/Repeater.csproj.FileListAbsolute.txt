@@ -1,0 +1,10 @@
+C:\Projects\20140501\InterfaceEvent\Repeater\bin\Repeater.dll
+C:\Projects\20140501\InterfaceEvent\Repeater\bin\Repeater.pdb
+C:\Projects\20140501\InterfaceEvent\Repeater\obj\Release\Repeater.csprojResolveAssemblyReference.cache
+C:\Projects\20140501\InterfaceEvent\Repeater\obj\Release\Repeater.dll
+C:\Projects\20140501\InterfaceEvent\Repeater\obj\Release\Repeater.pdb
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\Repeater\bin\Repeater.dll
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\Repeater\bin\Repeater.pdb
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\Repeater\obj\Release\Repeater.csprojResolveAssemblyReference.cache
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\Repeater\obj\Release\Repeater.dll
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\Repeater\obj\Release\Repeater.pdb

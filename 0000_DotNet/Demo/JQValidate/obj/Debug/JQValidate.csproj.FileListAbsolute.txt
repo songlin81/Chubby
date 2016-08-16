@@ -1,0 +1,8 @@
+C:\Users\v0cn140\Desktop\SendToGit\JQValidate\JQValidate\JQValidate\bin\JQValidate.dll
+C:\Users\v0cn140\Desktop\SendToGit\JQValidate\JQValidate\JQValidate\bin\JQValidate.pdb
+C:\Users\v0cn140\Desktop\SendToGit\JQValidate\JQValidate\JQValidate\obj\Debug\JQValidate.dll
+C:\Users\v0cn140\Desktop\SendToGit\JQValidate\JQValidate\JQValidate\obj\Debug\JQValidate.pdb
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\JQValidate\bin\JQValidate.dll
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\JQValidate\bin\JQValidate.pdb
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\JQValidate\obj\Debug\JQValidate.dll
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\JQValidate\obj\Debug\JQValidate.pdb

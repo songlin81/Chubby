@@ -1,0 +1,17 @@
+C:\Projects\20140501\InterfaceEvent\CultureInfo\obj\Debug\CultureInfo.Form1.resources
+C:\Projects\20140501\InterfaceEvent\CultureInfo\obj\Debug\CultureInfo.Properties.Resources.resources
+C:\Projects\20140501\InterfaceEvent\CultureInfo\obj\Debug\CultureInfo.csproj.GenerateResource.Cache
+C:\Projects\20140501\InterfaceEvent\CultureInfo\bin\Debug\CultureInfo.exe.config
+C:\Projects\20140501\InterfaceEvent\CultureInfo\bin\Debug\CultureInfo.exe
+C:\Projects\20140501\InterfaceEvent\CultureInfo\bin\Debug\CultureInfo.pdb
+C:\Projects\20140501\InterfaceEvent\CultureInfo\obj\Debug\CultureInfo.exe
+C:\Projects\20140501\InterfaceEvent\CultureInfo\obj\Debug\CultureInfo.pdb
+C:\Projects\20140501\InterfaceEvent\CultureInfo\obj\Debug\CultureInfo.csprojResolveAssemblyReference.cache
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\CultureInfo\bin\Debug\CultureInfo.exe.config
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\CultureInfo\bin\Debug\CultureInfo.exe
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\CultureInfo\bin\Debug\CultureInfo.pdb
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\CultureInfo\obj\Debug\CultureInfo.Form1.resources
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\CultureInfo\obj\Debug\CultureInfo.Properties.Resources.resources
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\CultureInfo\obj\Debug\CultureInfo.csproj.GenerateResource.Cache
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\CultureInfo\obj\Debug\CultureInfo.exe
+C:\Users\v0cn140\Desktop\SendToGit\InterfaceEvent\CultureInfo\obj\Debug\CultureInfo.pdb
