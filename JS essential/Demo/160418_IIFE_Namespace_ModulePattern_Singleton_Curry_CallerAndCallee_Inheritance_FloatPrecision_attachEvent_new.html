@@ -4,71 +4,6 @@
     <meta charset="UTF-8">
     <script type="text/javascript">
         
-        // Part A. IIFE NameSpace, Module Pattern
-        var checkpoint = (function() {           
-            // private count variable
-            var count = 0;
-            // private method _add
-            var _add = function(a, b){
-                count++;
-                console.log(a + b + "- count = " + count);
-            };          
-            // private method _sub
-            var _sub = function(a, b){
-                count++;
-                console.log(a - b + "- count = " + count);
-            }
-            var auditTrail = function(info) {
-                console.log("Auditing trail is completed in " + info)
-            }
-            var savingAccount = function () {
-                console.log("In saving account calculation");
-                auditTrail("success");
-            };
-            var checkingAccount = function () {
-                console.log("In checking account calculation");
-                auditTrail("success");
-            };
-            
-            return {
-                add : _add, // return public method add and sub as a JavaScript, Object literal
-                sub : _sub,             
-                SavingAccount : savingAccount,
-                CheckingAccount : checkingAccount
-            }
-        }());
-        // As its a singleton, we don't need to create an object but can directly call the methods.
-        checkpoint.add(150,100);
-        checkpoint.sub(150,100);
-        checkpoint.SavingAccount();
-        checkpoint.CheckingAccount();
-        console.log("^^^^^^^^^^ Part A IIFE NameSpace, Module Pattern Singleton ^^^^^^^^^^^^^^^^");
-        
-        
-        // Part B. Module Pattern
-        var Mathlibrary = function(){
-            var count = 0;
-            var _add = function(a, b){
-                count++;
-                console.log(a + b + "- count = " + count);
-            };          
-            var _sub = function(a, b){
-                count++;
-                console.log(a - b + "- count = " + count);
-            }              
-            return{
-                add : _add,
-                sub : _sub
-            }
-        }
-        // Create an object of Mathlibrary class
-        var mathObj = new Mathlibrary();
-        // Call methods add and sub on the mathObj object
-        mathObj.add(150, 100);
-        mathObj.sub(150, 100);
-        console.log("^^^^^^^^^^ Part B Module Pattern ^^^^^^^^^^^^^^^^");
-        
-        
         // Part C. Currying is the technique of transforming a function that takes multiple arguments 
         // in such a way that it can be called as a chain of functions each with a single argument.
         function add(x, y) {
@@ -80,7 +15,8 @@
                 return x + y;
             }
         }
-        console.log('curry_add(2)(3) == ' + curry_add(2)(3));   
+        console.log('curry_add(2)(3) == ' + curry_add(2)(3));
+        
         function addGenerator( num ) {
             // Return a simple function for adding two numbers
             // with the first number borrowed from the generator
