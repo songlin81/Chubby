@@ -1,7 +1,7 @@
 angular.module('ngapp.filter', [])
     .filter('greet', function() {
         return function(name) {
-            return 'Hello, ' + name + '!';
+            return 'Filter applied to: ' + name + '!';
         };
     })
     .filter('myFilter', function() {

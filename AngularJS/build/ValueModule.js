@@ -1,6 +1,6 @@
 angular.module('ngapp.value', [])
   .value('greeter', {
-      salutation: 'Hello',
+      salutation: 'Fib',  //1. property
       localize: function(localization) {
         this.salutation = localization.salutation;
       },
@@ -13,4 +13,4 @@ angular.module('ngapp.value', [])
       this.name = name;
     }
   })
-  .constant('constanttest', '***');
+  .constant('constdata', ' --- ');  //2. constant 
