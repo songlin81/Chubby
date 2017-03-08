@@ -68,10 +68,19 @@
       <h3>Reverse String : {{reverseString}}</h3>
       <h3>Character Count : {{characterCount}}</h3>
       <h3>cookie: {{platformCookie}} -- {{key1Value}}</h3>
+      
+      <form name="studentForm">
+        <input type="email" name="studentEmail" ng-model="email" required placeholder="Enter email" />
+          <div ng-messages="studentForm.studentEmail.$error">
+          <div ng-message="required">Email field is required</div>
+          <div ng-message="email">Email address is invalid</div>
+        </div>
+      </form>
     </div>
 
     <script src="angular.min.js"></script>
     <script src="angular-cookies.min.js"></script>
+    <script src="angular-messages.min.js"></script>
     <script src="ValueModule.js"></script>
     <script src="DirectiveModule.js"></script>
     <script src="FilterModule.js"></script>

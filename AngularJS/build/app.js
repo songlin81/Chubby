@@ -7,7 +7,8 @@
          'ngapp.factory',
          'ngapp.service',
          'ngapp.provider',
-         'ngCookies']
+         'ngCookies',
+         'ngMessages']
     );
     appModule.run(function(greeter, user, constdata) {
         greeter.localize({salutation: 'Fibonacci' + constdata});
