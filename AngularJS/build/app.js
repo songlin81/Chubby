@@ -6,7 +6,8 @@
          'ngapp.filter',
          'ngapp.factory',
          'ngapp.service',
-         'ngapp.provider']
+         'ngapp.provider',
+         'ngCookies']
     );
     appModule.run(function(greeter, user, constdata) {
         greeter.localize({salutation: 'Fibonacci' + constdata});
@@ -98,10 +99,15 @@
       };
     });
 
-    appModule.controller("MyControllerFcty", ["$scope", "StringUtil", function($scope, StringUtil) {
-      $scope.originalString = "timberland";
-      $scope.reverseString = StringUtil.getReverseString($scope.originalString);
-      $scope.characterCount = StringUtil.getCharacterCount($scope.originalString);
-      }
-    ]);
+    appModule.controller("MyControllerFcty", ["$scope","StringUtil",'$cookies','$cookieStore', function($scope,StringUtil,$cookies,$cookieStore) {
+        $scope.originalString = "timberland";
+        $scope.reverseString = StringUtil.getReverseString($scope.originalString);
+        $scope.characterCount = StringUtil.getCharacterCount($scope.originalString);
+        $cookies.sKey = 'key';
+        $scope.platformCookie = $cookies.sKey;
+        $cookieStore.put('key1', 'a1b');
+        $cookieStore.put('key2', 'c1d');
+        $scope.key1Value = $cookieStore.get('key1');
+    }]);
+
 })();
