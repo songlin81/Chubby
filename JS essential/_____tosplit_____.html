@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript">
+        
+        // Part G. Float precision
+        var a=0.1, b=0.2;
+        console.log("0.1 + 0.2 == " + (a+b) );
+        console.log("0.1 + 0.2 == 0.3 is " + ((a+b)==0.3) );
+        console.log("(0.1 + 0.2).toPrecision(10) == 0.3 is " + ((0.1 + 0.2).toPrecision(10) == 0.3) );
+        console.log("(0.1 + 0.2).toFixed(10) == 0.3 is " + ((0.1 + 0.2).toFixed(10) == 0.3) );
+        console.log("^^^^^^^^^^ Part G. Float precision ^^^^^^^^^^^^^^^^");
+
+        
+        // Part I. IIEF revisit -- new
+        var Man = (function () {
+                var localInit=function(age){
+                    this.sex="male";
+                    this.age=age;   
+                };
+                return{
+                    ManInit:localInit   
+                }
+        }());
+        var m1=Man.ManInit(20);
+        var m2=new Man.ManInit(21);
+        console.log(m1);                        //undefined... from func def.   
+        console.log(window.sex);                //undefined......>>>no pollution in the global scope.
+        console.log(m2.sex+' '+m2.age);         //male 21  
+        console.log("^^^^^^^^^^ Part I. IIEF revisit -- new ^^^^^^^^^^^^^^^^");
+        
+        
+        // Part J. new
+        function Man2(age){
+            this.sex="male";
+            this.age=age;
+        };
+        var m11=Man2(20);
+        var m22=new Man2(21);               //instance of Man2
+        console.log(m11);                   //undefined
+        console.log(window.sex);            //male, global polluted.
+        console.log(m22.sex+' '+m22.age);   //male 21
+        console.log("^^^^^^^^^^ Part J. new ^^^^^^^^^^^^^^^^");
+        
+        
+        // Part K. new factory
+        function Man3(age){
+            var obj=new Object();
+            obj.sex="male";
+            obj.age=age;
+            return obj;
+        };
+        var m111=Man3(20);
+        console.log(m111.sex+' '+m111.age);   //male 20
+        console.log("^^^^^^^^^^ Part K. new factory ^^^^^^^^^^^^^^^^");
+        
+        
+        // Part M. New operator -- a. function without return value.
+        //  如果就一个函数，没有返回值，没有prototype成员，然后使用new,会是什么结果呢？
+        //  如果一个函数没有返回值，那么如果不使用new来创建变量，那么该变量的值为undefined.
+        //  如果用了new，那么就是Object.说明一个函数的默认的Prototype是Object.
+        function Test1(str) {
+            this.a = str;
+        }
+        var myTest = new Test1("test1");
+        console.log(myTest); //[object Object]
+        function Test1WithoutNew(str) {
+            this.a = str;
+        }
+        var myTestWithoutNew = Test1WithoutNew("test1");
+        console.log(myTestWithoutNew); //undefined;
+        console.log("^^^^^^^^^^ Part M. New operator -- a. function without return value. ^^^^^^^^^^^^^^^^");
+        
+        
+        // Part M. New operator -- b. function with return value.
+        //  如果函数有返回值，但是返回值是基本类型。那么new出来的myTest还是object.
+        //  因为基本类型的prototype还是Object.
+        //  而如果不使用new，那么返回值就是string的值。
+        function Test2(str) {
+            this.a = str;
+            return this.a;
+        }
+        var myTest = new Test2("test1");
+        console.log(myTest); //Object
+        function Test2WithoutNew(str) {
+            this.a = str;
+            return this.a;
+        }
+        var myTestWithoutNew2 = Test2WithoutNew("test1");
+        console.log(myTestWithoutNew2); //"test1"
+        console.log("^^^^^^^^^^ Part M. New operator -- b. function with return value. ^^^^^^^^^^^^^^^^");
+        
+        
+        // Part M. New operator -- c. function with return new value.
+        //  如果函数的返回值为new出来的对象，那么myTest的值根据new出来的对象的prototype而定。
+        function Test3(str) {
+            this.a = str;
+            return new String(this.a);
+        }
+        var myTest = new Test3("test2");
+        console.log(myTest); //String "test2"
+        console.log("^^^^^^^^^^ Part M. New operator -- c. function with return new value. ^^^^^^^^^^^^^^^^");
+ 
+        
+        // Part P. semicolon in Javascript
+        //Js多个文件集成成一个文件后，压缩代码时避免发生语法错误，可以如下处理
+        
+        //一、js 前加分号
+        //例如：;(function($){...此处代码...})();
+        //Javascript中分号表示语句结束，在开头加上，是为了压缩的时候和别的方法分割一下，表示一个新的语句开始
+
+        //二、js函数后加分号
+        //例如
+        //// 模块1, 前面有若干代码
+        //var Manager = {
+        //    prop: '',
+        //    method: function () {
+        //    }
+        //}
+        //// 模块2，开头是个立即执行函数
+        (function () {
+            // 代码
+        })()
+        //经过压缩后变成：  }}(function 那里，会被当成一个函数来执行，于是整体的解析就会出错了
+        //var Manager = {prop: 'aaa',method: function (){}}(function () {})()
+        //解决方法： 是在Manager函数后加分号.
+        console.log("^^^^^^^^^^ Part P. semicolon in Javascript ^^^^^^^^^^^^^^^^");
+        
+        
+        // Part Q. Release resources.
+        //a. 释放javascript对象
+        //在rich应用中，随着实例化对象数量的增加，内存消耗会越来越大。所以应当及时释放对对象的引用，让GC能够回收这些内存控件。
+        //对象：
+        //    obj = null
+        //对象属性：
+        //    delete obj.myproperty
+        //数组item：使用数组的splice方法释放数组中不用的item
+        
+        //b. 释放dom元素占用的内存
+        //将dom元素的innerHTML设置为空字符串，可以释放其子元素占用的内存。
+        //在rich应用中，用户也许会在一个页面上停留很长时间，可以使用该方法释放积累得越来越多的dom元素使用的内存。
+        console.log("^^^^^^^^^^ Part Q. Release resources. ^^^^^^^^^^^^^^^^");
+        
+        
+        // Part R. avoid repetition.
+        //重复使用的调用结果，事先保存到局部变量
+        //避免多次取值的调用开销
+        //var h1 = element1.clientHeight + num1;
+        //var h2 = element1.clientHeight + num2;
+        //可以替换为：
+        //var eleHeight = element1.clientHeight;
+        //var h1 = eleHeight + num1;
+        //var h2 = eleHeight + num2;
+        console.log("^^^^^^^^^^ Part R. avoid repetition. ^^^^^^^^^^^^^^^^");
+        
+        
+        // Part S. number to string.
+        //数字转换成字符串
+        //般最好用”" + 1来将数字转换成字符串，虽然看起来比较丑一点，但事实上这个效率是最高的，性能上来说：
+        //(“” +) > String() > .toString() > new String()
+        console.log("100.01 to string is: "+(""+100.01));
+        console.log("^^^^^^^^^^ Part S. number to string. ^^^^^^^^^^^^^^^^");
+        
+        
+        //// Part T. Avoid global pollution.
+        //全局变量应该全部字母大写，各单词之间用_下划线来连接。尽可能避免全局变量和函数, 尽量减少全局变量的使用，
+        //因为在一个页面中包含的所有JavaScript都在同一个域中运行。
+        //所以如果你的代码中声明了全局变量或者全局函数的话，
+        //后面的代码中载入的脚本文件中的同名变量和函数会覆盖掉（overwrite）你的。
+        ////糟糕的全局变量和全局函数
+        var current = null;
+        function init(){
+            //...
+        }
+        function change() {
+            //...
+        }
+        function verify() {
+            //...
+        }
+        ////解决办法有很多，Christian Heilmann建议的方法是：
+        ////如果变量和函数不需要在“外面”引用，那么就可以使用一个没有名字的方法将他们全都包起来。
+        (function(){
+            var current = null;
+            function init() {
+                //...
+            }
+            function change() {
+                //...
+            }
+            function verify() {
+                //...
+            }
+        })();
+
+        ////如果变量和函数需要在“外面”引用，需要把你的变量和函数放在一个“命名空间”中
+        ////我们这里用一个function做命名空间而不是一个var，因为在前者中声明function更简单，而且能保护隐私数据
+        var myNameSpace = function() {
+            var current = null;
+            function init() {
+                //...
+            }
+            function change() {
+                //...
+            }
+            function verify() {
+                //...
+            }
+            //所有需要在命名空间外调用的函数和属性都要写在return里面
+            return {
+                init: init,
+                //甚至你可以为函数和属性命名一个别名
+                set: change
+            };
+        };
+        console.log("^^^^^^^^^^ Part T. Avoid global pollution. ^^^^^^^^^^^^^^^^");
+        
+        
+        //Part U. == and ===.
+        //避免在if和while语句的条件部分进行赋值，如if (a = b)，应该写成if (a == b)，但是在比较是否相等的情况下，
+        //最好使用全等运行符，也就是使用===和!==操作符会相对于==和!=会好点。
+        //==和!=操作符会进行类型强制转换
+        var valueA = "1";
+        var valueB = 1;
+        if (valueA == valueB) {
+            console.log("Equal");
+        }
+        else {
+            console.log("Not equal");
+        }
+        //output: "Equal"
+        if (valueA === valueB) {
+            console.log("Equal");
+        }
+        else {
+            console.log("Not equal");
+        }
+        //output: "Not equal"
+        console.log("^^^^^^^^^^ Part U. == and ===. ^^^^^^^^^^^^^^^^");
+        
+        
+        //Part V. Avoid implicit boxing 
+        //对string的方法调用，比如’xxx’.length，浏览器会进行一个隐式的装箱操作，将字符串先转换成一个String对象。
+        //推荐对声明有可能使用String实例方法的字符串时，采用如下写法：
+        var myString = new String('Hello World');
+        console.log(myString.length);
+        console.log("^^^^^^^^^^ Part V. Avoid implicit boxing. ^^^^^^^^^^^^^^^^");
+        
+        
+        //Part W. Use Literals.
+        var aTest = new Array(); //替换为
+        var aTest = [];
+        var aTest = new Object; //替换为
+        var aTest = {};
+        var reg = new RegExp(); //替换为
+        var reg = /../;
+        //如果要创建具有一些特性的一般对象，也可以使用字面量，如下：
+        var oFruit = {};
+        oFruit.color = "red";
+        oFruit.name = "apple";
+        //前面的代码可用对象字面量来改写成这样：
+        var oFruit = { color: "red", name: "apple" };
+        console.log("^^^^^^^^^^ Part W. Literals. ^^^^^^^^^^^^^^^^");
+        
+        
+        //Part X. 巧用||和&&布尔运算符
+        function eventHandler(e) {
+            if (!e) e = window.event;
+        }
+        //可以替换为：
+        function eventHandler2(e) {
+            e = e || window.event;
+        }
+
+        var myobj;
+        if (myobj) {
+            doSomething(myobj);
+        }
+        //可以替换为：
+        myobj && doSomething(myobj);
+        console.log("^^^^^^^^^^ Part X. Usage of || and &&  ^^^^^^^^^^^^^^^^");
+        
+        
+        //Part Y. float to int
+        //很多人喜欢使用parseInt()，其实parseInt()是用于将字符串转换成数字，而不是浮点数和整型之间的转换，
+        //我们应该使用Math.floor()或者Math.round()
+        console.log(parseInt('100.5')+' '+Math.floor(100.5)+' '+Math.round(100.5));
+        console.log("^^^^^^^^^^ Part Y. float to int ^^^^^^^^^^^^^^^^");
+        
+        
+        //Part AA. operator +
+        //使用+号时需谨慎
+        //JavaScript 和其他编程语言不同的是，在 JavaScript 中，’+'除了表示数字值相加，字符串相连接以外，
+        //还可以作一元运算符用，把字符串转换为数字。
+        //因而如果使用不当，则可能与自增符’++’混淆而引起计算错误
+        var valueA = 20;
+        var valueB = "10";
+        console.log(valueA + valueB);     //ouput: 2010 
+        console.log(valueA + (+valueB));  //output: 30 
+        console.log(valueA + +valueB);    //output:30 
+        //console.log(valueA ++ valueB);     //Compile error
+        console.log("^^^^^^^^^^ Part AA. operator + ^^^^^^^^^^^^^^^^");
+        
+    </script>
+</head>
+<body>
+    <div>Press F12 to view results in Console</div>
+    <button type="button" id="testBtn">test</button>  
+    <script>
+        // Part L. new and event
+        (function () {
+            var Man=function(){
+                var localInit=function(age){
+                    this.sex="male";
+                    this.age=age;
+                    console.log(sex+' '+age);   //male 22
+                };
+                var _Hello_ok=function() {
+                    console.log("您好，我测试attachEvent时间方法！");
+                    console.log("^^^^^^^^^^ Part L. new and event ^^^^^^^^^^^^^^^^");
+                };
+                return{
+                    ManInit:localInit,
+                    Hello_ok: _Hello_ok
+                }
+            }
+            var m2=new Man();
+            m2.ManInit(22);
+            var a = document.getElementById("testBtn");
+            a.innerHTML  = "点我有事件";
+            if (document.all) {//IE
+                a.attachEvent("onclick", m2.Hello_ok);
+            }
+            else {//FF,Chrome，Safari
+                a.addEventListener("click", m2.Hello_ok, false);
+            }
+        }());
+        console.log("^^^^^^^^^^ Part L. new and event ^^^^^^^^^^^^^^^^");
+    </script>
+    
+    <br/>
+    
+    <!-- Part Z. Call & Apply -->
+    <br/>
+    <a href="www.sina.com">Sina</a><br />
+    <a href="www.sohu.com">Sohu</a><br />
+    <a href="www.yahoo.com">Yahoo</a><br />
+    <script>
+        //Part Z. 3.It retrieves the slice function from an Array.
+        //It then calls that function, but using the result of document.querySelectorAll
+        //as the this object instead of an actual array.
+        console.log([].slice.call(document.querySelectorAll('a')).join(','))
+        console.log("^^^^^^^^^^ Part L. new and event ^^^^^^^^^^^^^^^^");
+    </script>
+</body>
+</html>
