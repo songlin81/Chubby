@@ -1,5 +1,0 @@
-C:\wasabi\Fishery\PLinqSyntax\bin\Debug\PLinqSyntax.exe
-C:\wasabi\Fishery\PLinqSyntax\bin\Debug\PLinqSyntax.pdb
-C:\wasabi\Fishery\PLinqSyntax\obj\Debug\PLinqSyntax.csprojResolveAssemblyReference.cache
-C:\wasabi\Fishery\PLinqSyntax\obj\Debug\PLinqSyntax.exe
-C:\wasabi\Fishery\PLinqSyntax\obj\Debug\PLinqSyntax.pdb

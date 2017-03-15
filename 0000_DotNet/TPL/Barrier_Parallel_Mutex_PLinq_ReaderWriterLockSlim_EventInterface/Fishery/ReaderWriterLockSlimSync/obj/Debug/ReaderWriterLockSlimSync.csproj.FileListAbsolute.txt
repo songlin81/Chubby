@@ -1,8 +1,0 @@
-C:\wasabi\Fishery\ReaderWriterLockSlimSync\bin\Debug\ReaderWriterLockSlimSync.exe
-C:\wasabi\Fishery\ReaderWriterLockSlimSync\bin\Debug\ReaderWriterLockSlimSync.pdb
-C:\wasabi\Fishery\ReaderWriterLockSlimSync\obj\Debug\ReaderWriterLockSlimSync.exe
-C:\wasabi\Fishery\ReaderWriterLockSlimSync\obj\Debug\ReaderWriterLockSlimSync.pdb
-C:\Users\v0cn140\Desktop\SendToGit\ParallelDemo\Fishery\ReaderWriterLockSlimSync\bin\Debug\ReaderWriterLockSlimSync.exe
-C:\Users\v0cn140\Desktop\SendToGit\ParallelDemo\Fishery\ReaderWriterLockSlimSync\bin\Debug\ReaderWriterLockSlimSync.pdb
-C:\Users\v0cn140\Desktop\SendToGit\ParallelDemo\Fishery\ReaderWriterLockSlimSync\obj\Debug\ReaderWriterLockSlimSync.exe
-C:\Users\v0cn140\Desktop\SendToGit\ParallelDemo\Fishery\ReaderWriterLockSlimSync\obj\Debug\ReaderWriterLockSlimSync.pdb
