@@ -8,42 +8,42 @@
 	<body>
 		 <button id="tempBtn" type="button">Click Me!</button> 
 	<script>
-	//1. Object literal
-	function createPerson(firstName, lastName) {
-		return {
-			firstName,
-			lastName
+		function createPerson(firstName, lastName) {
+			return {
+				firstName,
+				lastName
+			}
 		}
-	}
-	var Console = Console || 
-				{
-					log: function(input){ 
-							console.log(input + '!!!');
-						}
-				};	
-	var person = createPerson('Jay','Bird');
-	Console.log(person.firstName+'...'+person.lastName);
+		var Console = Console || {
+									log: function(input){ 
+										console.log(input + '!!!');
+									}
+								};	
+		var person = createPerson('Jay','Bird');
+		Console.log('1. Object literal: '+person.firstName+'...'+person.lastName);
+		
+
 	
-	//2. Class + Default Values
-	class Song {
-	  constructor(title, artist, duration, isPlaying = false) {
-		this.title = title;
-		this.artist = artist;
-		this.duration = duration;
-		this.isPlaying = isPlaying; 
-	  }
-	  start() {
-		this.isPlaying = true;
-	  }
-	  stop() {
-		this.isPlaying = false;
-	  }
-	}
-	var song=new Song('Times','Jay','2010');
-	song.start();
-	Console.log((song.isPlaying === true)+'...'+song.title);
+		class Song {
+		  constructor(title, artist, duration, isPlaying = false) {
+			this.title = title;
+			this.artist = artist;
+			this.duration = duration;
+			this.isPlaying = isPlaying; 
+		  }
+		  start() {
+			this.isPlaying = true;
+		  }
+		  stop() {
+			this.isPlaying = false;
+		  }
+		}
+		var song=new Song('Times','Jay','2010');
+		song.start();
+		Console.log('2. Class + Default Values: '+(song.isPlaying === true)+'...'+song.title);
 	
-	//3. Inheritance
+	
+
 	class Media {
 		constructor(title, duration, isPlaying = false) {
 		this.title = title;
@@ -67,25 +67,27 @@
 		}
 	}
 	var movie = new Movie('Speed',1995, 120);
-	Console.log((movie.isPlaying === true)+'...'+movie.year);
+	Console.log('3. Inheritance'+(movie.isPlaying === true)+'...'+movie.year+'...'+movie.toString());
 	
-	//4. Arrow Function
+	
+
 	class Contact {
 	  constructor(name, email, button) {
 		this.name = name;
 		this.email = email;	
 		document.getElementById(button).onclick=(event) => {
-		  Console.log(this.email);
+		  Console.log('4.1 Arrow Function: '+this.email);
 		}
 	  }
 	}
 	var contact = new Contact('Tim','tim.bird@forsan.com', 'tempBtn');
-	
+
 	var oneToFive = [1,2,3,4,5];
 	var twoToTen = oneToFive.map(n => n * 2);
-	Console.log(twoToTen);
+	Console.log('4.2 Arrow Function: '+twoToTen);
 	
-	//5. let
+	
+
 	for (let i = 0; i < 10; i++) {
 	  console.log(i);
 	}
@@ -93,56 +95,64 @@
 		Console.log('i is defined');
 	}
 	else{
-		Console.log('i is undefined');
+		Console.log('5. let: i is undefined');
 	}
 	
-	//6. const 
+	
+	
 	//const admin = "Andrew";
 	//admin = "Kenneth"; // "admin" is read-only
 	const admin2 = {name: "Andrew"};
 	admin2.name = "Kenneth";
-	Console.log(admin2.name);
+	Console.log('6. const: '+admin2.name);
 	
-	//7. Rest & Spread
+	
+
 	var runners = ["Mary", "Andrew", "Craig", "Michael", "Kenneth", "Dave"];
 	function getLosers(first, second, third, ...losers) {
 	  return losers;
 	}
-	Console.log(getLosers(...runners));
+	Console.log('7. Rest & Spread: '+getLosers(...runners));
 	
-	//8. Template Strings
-	console.log(movie.toString());
 	
-	//9. Destructuring
+
+	console.log('8. Template Strings:'+movie.toString());
+	
+	
+
 	var [first, second, third] = ["Andrew", "Craig", "Kenneth"];
-	Console.log(first);
-	Console.log(second);
-	Console.log(third);
+	Console.log('9. Destructuring: '+first+' '+second+' '+third);
+
+
 	
 	var person = {
-	  firstName: "Andrew",
-	  lastName: "Chalkley"
+	  firstName: "Andrew2",
+	  lastName: "Chalkley2"
 	}
 	var {firstName, lastName} = person;
-	Console.log(firstName);
+	Console.log('10.1: '+firstName);
 	Console.log(lastName);
 	
-	var person = {
-	  firstName: "Andrew",
-	  lastName: "Chalkley"
-	}
-	var {firstName: first, lastName: last} = person;
-	Console.log(first);
-	Console.log(last);
+	
 	
 	var person = {
-	  firstName: "Andrew",
-	  lastName: "Chalkley"
+	  firstName: "Andrew3",
+	  lastName: "Chalkley3"
+	}
+	var {firstName: first, lastName: last} = person;
+	Console.log('10.2: '+first);
+	Console.log(last);
+	
+	
+	
+	var person = {
+	  firstName: "Andrew4",
+	  lastName: "Chalkley4"
 	}
 	function getFirstName({firstName: first}) {
 	  return first;
 	}
-	Console.log(getFirstName(person));
+	Console.log('10.3: '+getFirstName(person));
 	</script>
 </body>
 
